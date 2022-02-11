@@ -1,70 +1,144 @@
-# Getting Started with Create React App
+# Dcard 2022 Web Frontend Intern Homework
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A [React](https://reactjs.org) app designed with [Bootstrap](https://bootstrap5.hexschool.com) that could search a [GitHub](https://github.com) user's repositories.
 
-## Available Scripts
+- **Dcard 2022 Web Frontend Intern Homework：**[Doc](https://drive.google.com/file/d/1niPucGwf9qGEpLokVptK2a1zNeReS8WL/view)
 
-In the project directory, you can run:
+<img src="https://github.com/5j54d93/Dcard-2022-Web-Frontend-Intern-Homework/blob/main/.github/assets/Demo.gif" width='100%' height='100%'/>
 
-### `npm start`
+> ### Repositories List
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+User's Repositories route at `/users/{username}/repos`
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+<img src="https://github.com/5j54d93/Dcard-2022-Web-Frontend-Intern-Homework/blob/main/.github/assets/RepositoryList.png" width='100%' height='100%'/>
 
-### `npm test`
+> ### Single Repository Page
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- Include a hyperlink to GitHub repository.
+- Repository detail route at `/users/{username}/repos/{repo}`
 
-### `npm run build`
+<img src="https://github.com/5j54d93/Dcard-2022-Web-Frontend-Intern-Homework/blob/main/.github/assets/SingleRepository.png" width='100%' height='100%'/>
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Overview
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+1. [How to use](https://github.com/5j54d93/Dcard-2022-Web-Frontend-Intern-Homework#how-to-use)
+2. [Learn More](https://github.com/5j54d93/Dcard-2022-Web-Frontend-Intern-Homework#learn-more)
+3. [Extra：Dcard Favicon！～](https://github.com/5j54d93/Dcard-2022-Web-Frontend-Intern-Homework#-extradcard-favicon)
+4. [License](https://github.com/5j54d93/Dcard-2022-Web-Frontend-Intern-Homework#dcard-2022-web-frontend-intern-homeworklicense-ricky-chuang)
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## How to use
 
-### `npm run eject`
+### 🎊！！！This is a Deploied React app！！！🎊
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+#### You could use this React app on [**5j54d93.github.io/Dcard-2022-Web-Frontend-Intern-Homework**](https://5j54d93.github.io/Dcard-2022-Web-Frontend-Intern-Homework) ！
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+_or Run this React app on your computer：_
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+### 0. You should have downloaded [Node.js](https://nodejs.org/en/) before
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+> _Node >= 14.0.0 and npm >= 5.6_
+
+### 1. First download this repository
+
+```shell
+git clone https://github.com/5j54d93/Dcard-2022-Web-Frontend-Intern-Homework
+```
+
+### 2. Change directories to this repository
+
+```shell
+cd Dcard-2022-Web-Frontend-Intern-Homework
+```
+
+### 3. Run this React app
+
+```shell
+npm install
+npm start
+```
+
+Open [**http://localhost:3000**](http://localhost:3000) to view it in your browser.
+
+## Architecture Design
+
+> [index.js](https://github.com/5j54d93/Dcard-2022-Web-Frontend-Intern-Homework/blob/main/src/index.js)：
+> - for route direct
+> - [`UserRepo`](https://github.com/5j54d93/Dcard-2022-Web-Frontend-Intern-Homework/blob/10d4d3fcd4b0901e4ca6dc216e1c81e76431776a/src/index.js#L21-L31) include a header & [`RepoList`](https://github.com/5j54d93/Dcard-2022-Web-Frontend-Intern-Homework/blob/main/src/RepoList.js)
+> - default at [App.js](https://github.com/5j54d93/Dcard-2022-Web-Frontend-Intern-Homework/blob/main/src/App.js)
+
+```jsx
+ReactDOM.render(
+  <React.StrictMode>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<App />} />
+        <Route path="/users/:owner/repos" element={<UserRepo />} />
+        <Route path="/users/:owner/repos/:repo" element={<RepoDetail />} />
+      </Routes>
+    </BrowserRouter>
+  </React.StrictMode>,
+  document.getElementById('root')
+);
+
+export default function UserRepo() {
+  let { owner } = useParams();
+  return (
+    <div>
+      <header class="text-center alert alert-primary" role="alert">
+        <h1 class='my-3'>GitHub Username：{owner}</h1>
+      </header>
+      <RepoList username={owner} />
+    </div>
+  );
+}
+```
+
+>> [App.js](https://github.com/5j54d93/Dcard-2022-Web-Frontend-Intern-Homework/blob/main/src/App.js)：for search GitHub User
+>> - a form for user to input a GitHub user name
+>> - can't submit if there's no input
+>>
+>> [RepoList.js](https://github.com/5j54d93/Dcard-2022-Web-Frontend-Intern-Homework/blob/main/src/RepoList.js)
+>> - fetch data from api：[`GET /users/{username}/repos`](https://docs.github.com/en/rest/reference/repos#list-repositories-for-a-user)
+>>   - using [parameter](https://docs.github.com/en/rest/reference/repos#list-repositories-for-a-user--parameters)：`per_page=10`、`page=`
+>> - check wether a user exist or not：[`GET /users/{username}`](https://docs.github.com/en/rest/reference/users#get-a-user)
+>> - check if reach bottom of page：[code here](https://github.com/5j54d93/Dcard-2022-Web-Frontend-Intern-Homework/blob/6c04cedaa30703ad2abf4afd7182a8807e2d06e5/src/RepoList.js#L47-L50)（using `Math.round` for work well on Chrome）
+>> ```jsx
+>> Math.round(window.innerHeight + document.documentElement.scrollTop)
+>> === document.documentElement.offsetHeight
+>> ```
+>> - Call API if there's more repositories to fetch：[code here](https://github.com/5j54d93/Dcard-2022-Web-Frontend-Intern-Homework/blob/3d7cd6cdeb31f863fef5919f9fe3708116755d97/src/RepoList.js#L48)
+>> ```jsx
+>> 10 * this.state.page < this.state.publicReposNum
+>> ```
+>> - 2 Component：
+>>   - [BackToHome](https://github.com/5j54d93/Dcard-2022-Web-Frontend-Intern-Homework/blob/39f73717b5c15c15d116ce5454529ac040ee4343/src/RepoList.js#L4-L14)：a button to [App.js](https://github.com/5j54d93/Dcard-2022-Web-Frontend-Intern-Homework/blob/main/src/App.js)
+>>   - [RepoTableHead](https://github.com/5j54d93/Dcard-2022-Web-Frontend-Intern-Homework/blob/39f73717b5c15c15d116ce5454529ac040ee4343/src/RepoList.js#L16-L28)：table header（Index、Repositories、Stars Earned）
+>>
+>> [RepoDetail.js](https://github.com/5j54d93/Dcard-2022-Web-Frontend-Intern-Homework/blob/main/src/RepoDetail.js)
+>> - fetch data from api：[`GET /repos/{owner}/{repo}`](https://docs.github.com/en/rest/reference/repos#get-a-repository)
+>> - 3 Component：
+>>   - [RepoDetailHeader](https://github.com/5j54d93/Dcard-2022-Web-Frontend-Intern-Homework/blob/39f73717b5c15c15d116ce5454529ac040ee4343/src/RepoDetail.js#L53-L61)：full name of a repository
+>>   - [RepoDetailBackToList](https://github.com/5j54d93/Dcard-2022-Web-Frontend-Intern-Homework/blob/39f73717b5c15c15d116ce5454529ac040ee4343/src/RepoDetail.js#L63-L73)：a button to [RepoList.js](https://github.com/5j54d93/Dcard-2022-Web-Frontend-Intern-Homework/blob/main/src/RepoList.js)
+>>   - [RepoDetailCard](https://github.com/5j54d93/Dcard-2022-Web-Frontend-Intern-Homework/blob/39f73717b5c15c15d116ce5454529ac040ee4343/src/RepoDetail.js#L75-L99)：repository's detail
 
 ## Learn More
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+### Search a GitHub user's repositories without input
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+<img src="https://github.com/5j54d93/Dcard-2022-Web-Frontend-Intern-Homework/blob/main/.github/assets/SearchWithoutInput.png" width='100%' height='100%'/>
 
-### Code Splitting
+### Deal with exception：If there's no such user on GitHub
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+<img src="https://github.com/5j54d93/Dcard-2022-Web-Frontend-Intern-Homework/blob/main/.github/assets/NoSuchUser.png" width='50%' height='100%'/><img src="https://github.com/5j54d93/Dcard-2022-Web-Frontend-Intern-Homework/blob/main/.github/assets/404.png" width='50%' height='100%'/>
 
-### Analyzing the Bundle Size
+### A GitHub user but haven't creat any repository yet
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+<img src="https://github.com/5j54d93/Dcard-2022-Web-Frontend-Intern-Homework/blob/main/.github/assets/Haven't-created-any-repository-yet.png" width='50%' height='100%'/><img src="https://github.com/5j54d93/Dcard-2022-Web-Frontend-Intern-Homework/blob/main/.github/assets/GitHub：YiLongSun.png" width='50%' height='100%'/>
 
-### Making a Progressive Web App
+## 🥰 Extra：Dcard Favicon！～
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+<img src="https://github.com/5j54d93/Dcard-2022-Web-Frontend-Intern-Homework/blob/main/.github/assets/DcardFavicon.png" width='50%' height='100%'/>
 
-### Advanced Configuration
+## MIT License｜© Ricky Chuang
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+This package is licensed under MIT license. See [LICENSE](https://github.com/5j54d93/Dcard-2022-Web-Frontend-Intern-Homework) for details.  

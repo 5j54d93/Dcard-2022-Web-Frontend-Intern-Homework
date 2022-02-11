@@ -1,17 +1,26 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+
+import Navbar from './Navbar';
 import App from './App';
-import reportWebVitals from './reportWebVitals';
+import RepoList from './RepoList';
+import RepoDetail from './RepoDetail';
+import Footer from './Footer';
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <div class="d-flex flex-column min-vh-100">
+      <Navbar />
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<App />} />
+          <Route path="/users/:owner/repos" element={<RepoList />} />
+          <Route path="/users/:owner/repos/:repo" element={<RepoDetail />} />
+        </Routes>
+      </BrowserRouter>
+      <Footer />
+    </div>
   </React.StrictMode>,
   document.getElementById('root')
 );
-
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
