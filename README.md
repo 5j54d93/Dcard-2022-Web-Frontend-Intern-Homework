@@ -1,6 +1,6 @@
 # Dcard 2022 Web Frontend Intern Homework
 
-A [React](https://reactjs.org) app designed with [Bootstrap](https://bootstrap5.hexschool.com) that could search a [GitHub](https://github.com) user's repositories.
+Using [Bootstrap](https://bootstrap5.hexschool.com) to design a [React](https://reactjs.org) app like [Dcard](https://www.dcard.tw) that could fetch data from [GitHub REST API](https://docs.github.com/en/rest) to list a [GitHub](https://github.com) user's all repositories！
 
 - **Dcard 2022 Web Frontend Intern Homework：**[Doc](https://drive.google.com/file/d/1niPucGwf9qGEpLokVptK2a1zNeReS8WL/view)
 
