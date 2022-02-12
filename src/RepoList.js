@@ -11,16 +11,18 @@ export default function RepoList() {
           GitHub Username：{owner}
         </h2>
         <BackToHome />
-        <table class="table table-hover table-bordered">
-          <thead style={{ background: 'rgb(3, 106, 166)' }}>
-            <tr class='text-white'>
-              <th class='align-middle text-center' scope="col">#</th>
-              <th class='align-middle text-center' scope="col">Repositories</th>
-              <th class='align-middle text-center' scope="col">Stars Earned</th>
-            </tr>
-          </thead>
-          <RepoRow username={owner} />
-        </table>
+        <div class="table-responsive-sm">
+          <table class="table table-hover table-bordered">
+            <thead style={{ background: 'rgb(3, 106, 166)' }}>
+              <tr class='text-white'>
+                <th class='align-middle text-center' scope="col">#</th>
+                <th class='align-middle text-center' scope="col">Repositories</th>
+                <th class='align-middle text-center' scope="col">Stars Earned</th>
+              </tr>
+            </thead>
+            <RepoRow username={owner} />
+          </table>
+        </div>
       </div>
     </div>
   );
