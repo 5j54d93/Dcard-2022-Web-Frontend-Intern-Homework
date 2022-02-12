@@ -8,17 +8,17 @@ A [**React**](https://reactjs.org) app design with [Bootstrap](https://bootstrap
 
 ## Overview
 
-1. [**How To Use**]()
-   - [On GitHub Page]()
-   - [On Your Computer]()
-2. [**Architecture Design**]()
-   - [index.js]()：for direct route
-   - [App.js]()：for search a GitHub user's repositories
-   - [RepoList.js]()：list all the GitHub user's repositories
-   - [RepoDetail.js]()：display repository detail
-3. [**Learn More**]()
-   - [Dcard Favicon！～]()
-4. [**LICENSE：MIT**]()
+1. [**How To Use**](https://github.com/5j54d93/Dcard-2022-Web-Frontend-Intern-Homework#how-to-use)
+   - [On GitHub Page](https://github.com/5j54d93/Dcard-2022-Web-Frontend-Intern-Homework#on-github-page)
+   - [On Your Computer](https://github.com/5j54d93/Dcard-2022-Web-Frontend-Intern-Homework#on-your-computer)
+2. [**Architecture Design**](https://github.com/5j54d93/Dcard-2022-Web-Frontend-Intern-Homework#architecture-design)
+   - [index.js](https://github.com/5j54d93/Dcard-2022-Web-Frontend-Intern-Homework#indexjsfor-direct-route)：for direct route
+   - [App.js](https://github.com/5j54d93/Dcard-2022-Web-Frontend-Intern-Homework#appjsfor-search-a-github-users-repositories)：for search a GitHub user's repositories
+   - [RepoList.js](https://github.com/5j54d93/Dcard-2022-Web-Frontend-Intern-Homework#repolistjslist-all-the-github-users-repositories)：list all the GitHub user's repositories
+   - [RepoDetail.js](https://github.com/5j54d93/Dcard-2022-Web-Frontend-Intern-Homework#repodetailjsdisplay-repository-details)：display repository detail
+3. [**Learn More**](https://github.com/5j54d93/Dcard-2022-Web-Frontend-Intern-Homework#learn-more)
+   - [Dcard Favicon！～](https://github.com/5j54d93/Dcard-2022-Web-Frontend-Intern-Homework#-dcard-favicon)
+4. [**LICENSE：MIT**](https://github.com/5j54d93/Dcard-2022-Web-Frontend-Intern-Homework#mit-license-ricky-chuang)
 
 ## How To Use
 
