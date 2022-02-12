@@ -146,7 +146,10 @@ if (
 - if reach bottom of the page && there's more repositories to fetch
   - increase `page` by 1
   - call API
-- else：do nothing（don't call API）
+  - show「loading icon」at table foot
+- else：
+  - do nothing（won't call API）
+  - show「No more repository」at table foot
 
 <img src="https://github.com/5j54d93/Dcard-2022-Web-Frontend-Intern-Homework/blob/main/.github/Asset/RepoList.png" width='100%' height='100%'/>
 <img src="https://github.com/5j54d93/Dcard-2022-Web-Frontend-Intern-Homework/blob/main/.github/Asset/No-more-repository.png" width='100%' height='100%'/>
