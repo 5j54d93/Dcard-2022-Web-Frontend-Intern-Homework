@@ -4,7 +4,7 @@ export default function Navbar() {
       <div class='container'>
         <nav class="navbar navbar-expand-lg navbar-dark flex-nowrap">
           <div class="container-fluid">
-            <a class="navbar-brand text-wrap" href="/Dcard-2022-Web-Frontend-Intern-Homework/">
+            <a class="navbar-brand text-wrap" href="/">
               <b>Dcard 2022 Web Frontend Intern Homework</b>
             </a>
             <a class='btn btn-outline-dark' style={{ color: 'white', borderColor: 'white' }} href='https://github.com/5j54d93/Dcard-2022-Web-Frontend-Intern-Homework' role='button' target='_blank' rel="noreferrer">
