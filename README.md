@@ -24,7 +24,9 @@ A [**React**](https://reactjs.org) app design with [Bootstrap](https://bootstrap
 
 ### On GitHub Page
 
-This React app have deployed on GitHub page, so you could try it on [**5j54d93.github.io/Dcard-2022-Web-Frontend-Intern-Homework**](https://5j54d93.github.io/Dcard-2022-Web-Frontend-Intern-Homework) ！
+🎊 This React app have deployed on GitHub page, so you could try it on：
+
+=> [**5j54d93.github.io/Dcard-2022-Web-Frontend-Intern-Homework**](https://5j54d93.github.io/Dcard-2022-Web-Frontend-Intern-Homework) 
 
 ### On Your Computer
 
