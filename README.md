@@ -130,7 +130,7 @@ fetchData = (pageNum) => {
 - if repositoy count == 0：display「Haven't created any repository yet」
 - else：list all his/her repositories
   - using [parameter](https://docs.github.com/en/rest/reference/repos#list-repositories-for-a-user--parameters)
-    - `per_page=10`：fetch 10 repositories on every API call
+    - `per_page=10`：fetch 10 repositories per `page` on every API call
     - `page`：default = 1
   - infinite scroll：using `Math.round` to work well on Chrome
   - [Link to code](https://github.com/5j54d93/Dcard-2022-Web-Frontend-Intern-Homework/blob/177b5b1d0af12f8d1a8fc484c2358ab0f065bbfe/src/RepoList.js#L63-L78)
