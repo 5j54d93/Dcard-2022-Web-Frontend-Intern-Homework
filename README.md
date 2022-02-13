@@ -146,7 +146,7 @@ if (
 - if reach bottom of the page && there's more repositories to fetch
   - increase `page` by 1
   - call API
-  - show「loading icon」at table foot
+  - show「progress view」at table foot
 - else：
   - do nothing（won't call API）
   - show「No more repository」at table foot
