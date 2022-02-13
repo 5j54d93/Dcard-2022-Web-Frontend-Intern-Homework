@@ -17,8 +17,8 @@ A [**React**](https://reactjs.org) app design with [Bootstrap](https://bootstrap
    - [RepoList.js](https://github.com/5j54d93/Dcard-2022-Web-Frontend-Intern-Homework#repolistjslist-all-the-github-users-repositories)：list all the GitHub user's repositories
    - [RepoDetail.js](https://github.com/5j54d93/Dcard-2022-Web-Frontend-Intern-Homework#repodetailjsdisplay-repository-details)：display repository detail
 3. [**Learn More**](https://github.com/5j54d93/Dcard-2022-Web-Frontend-Intern-Homework#learn-more)
-   - [Dcard Favicon！～](https://github.com/5j54d93/Dcard-2022-Web-Frontend-Intern-Homework#-dcard-favicon)
    - [Rate Limit](https://github.com/5j54d93/Dcard-2022-Web-Frontend-Intern-Homework#rate-limit)
+   - [Dcard Favicon！～](https://github.com/5j54d93/Dcard-2022-Web-Frontend-Intern-Homework#-dcard-favicon)
 4. [**LICENSE：MIT**](https://github.com/5j54d93/Dcard-2022-Web-Frontend-Intern-Homework#mit-license-ricky-chuang)
 
 ## How To Use
