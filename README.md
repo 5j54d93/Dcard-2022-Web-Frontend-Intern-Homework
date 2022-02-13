@@ -18,6 +18,7 @@ A [**React**](https://reactjs.org) app design with [Bootstrap](https://bootstrap
    - [RepoDetail.js](https://github.com/5j54d93/Dcard-2022-Web-Frontend-Intern-Homework#repodetailjsdisplay-repository-details)：display repository detail
 3. [**Learn More**](https://github.com/5j54d93/Dcard-2022-Web-Frontend-Intern-Homework#learn-more)
    - [Dcard Favicon！～](https://github.com/5j54d93/Dcard-2022-Web-Frontend-Intern-Homework#-dcard-favicon)
+   - [Rate Limit]()
 4. [**LICENSE：MIT**](https://github.com/5j54d93/Dcard-2022-Web-Frontend-Intern-Homework#mit-license-ricky-chuang)
 
 ## How To Use
@@ -170,6 +171,10 @@ if (
 ### 🥰 Dcard Favicon！～
 
 <img src="https://github.com/5j54d93/Dcard-2022-Web-Frontend-Intern-Homework/blob/main/.github/Asset/DcardFavicon.png" width='50%' height='100%'/>
+
+### Rate Limit
+
+If [**5j54d93.github.io/Dcard-2022-Web-Frontend-Intern-Homework**](https://5j54d93.github.io/Dcard-2022-Web-Frontend-Intern-Homework) or this React app that run on your computer didn't work well, you may exceed GitHub Rest API Rate Limit. For more information, [view this official doc](https://docs.github.com/en/rest/overview/resources-in-the-rest-api#rate-limiting).
 
 ## MIT License｜© Ricky Chuang
 
