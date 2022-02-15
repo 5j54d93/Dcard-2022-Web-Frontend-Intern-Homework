@@ -10,7 +10,7 @@ import Footer from './Footer';
 
 ReactDOM.render(
   <React.StrictMode>
-    <div class="d-flex flex-column min-vh-100">
+    <div className="d-flex flex-column min-vh-100">
       <Navbar />
       <BrowserRouter>
         <Routes>
