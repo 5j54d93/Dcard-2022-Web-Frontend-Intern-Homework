@@ -24,3 +24,7 @@ ReactDOM.render(
   document.getElementById('root')
 );
 ```
+
+### [App.js](https://github.com/5j54d93/Dcard-2022-Web-Frontend-Intern-Homework/blob/main/src/App.js)：a form for search a certain GitHub user's repositories
+
+<img src="https://github.com/5j54d93/Dcard-2022-Web-Frontend-Intern-Homework/blob/main/.github/Asset/App.png" width='100%' height='100%'/>
