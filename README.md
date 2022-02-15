@@ -6,7 +6,7 @@ _**！！！Add badge here！！！**_
 
 ---
 
-A [**React**](https://reactjs.org) app design with [Bootstrap](https://bootstrap5.hexschool.com) like [**Dcard**](https://www.dcard.tw) that could fetch data from [**GitHub REST API**](https://docs.github.com/en/rest) to list a [GitHub](https://github.com) user's all repositories！
+A [**React**](https://reactjs.org) app design with [Bootstrap](https://github.com/twbs/bootstrap) like [**Dcard**](https://www.dcard.tw) that could fetch data from [**GitHub REST API**](https://docs.github.com/en/rest) to list a [GitHub](https://github.com) user's all repositories！
 
 - Dcard 2022 Web Frontend Intern Homework：[Doc.pdf](https://drive.google.com/file/d/1niPucGwf9qGEpLokVptK2a1zNeReS8WL/view)
 
