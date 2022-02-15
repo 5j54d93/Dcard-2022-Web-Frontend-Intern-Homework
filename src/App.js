@@ -31,7 +31,7 @@ export default class App extends Component {
             </label>
             <div class="input-group">
               <input type="text" class="form-control form-control-lg" style={{ color: 'rgb(195,212,225)', background: 'rgb(4,88,138)', border: 'rgb(4,88,138)' }} placeholder="Search for GitHub user" aria-label="GitHub username" aria-describedby="GitHubUsername" value={this.state.value} onChange={this.handleChange} required />
-              <button class="btn btn-secondary" style={{ background: 'rgb(3, 106, 166)', border: 'rgb(4,88,138)' }} type="submit" id="searchButton">
+              <button class="btn btn-secondary" style={{ background: 'rgb(3, 106, 166)', border: 'rgb(4,88,138)' }} type="submit" id="searchButton" aria-label="search a GitHub user's repositories">
                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-search mx-1" viewBox="0 0 16 16">
                   <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" />
                 </svg>
