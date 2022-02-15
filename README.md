@@ -42,6 +42,7 @@ git clone https://github.com/5j54d93/Dcard-2022-Web-Frontend-Intern-Homework
 
 ```shell
 cd Dcard-2022-Web-Frontend-Intern-Homework
+clear
 ```
 
 3. Run this React app
