@@ -18,7 +18,7 @@ A [**React**](https://reactjs.org) app design with [Bootstrap](https://bootstrap
    - [RepoDetail.js](https://github.com/5j54d93/Dcard-2022-Web-Frontend-Intern-Homework#repodetailjsdisplay-repository-details)：display repository detail
 3. [**Learn More**](https://github.com/5j54d93/Dcard-2022-Web-Frontend-Intern-Homework#learn-more)
    - [Rate Limit](https://github.com/5j54d93/Dcard-2022-Web-Frontend-Intern-Homework#rate-limit)
-   - [Responsive Web Design]()
+   - [Responsive Web Design](https://github.com/5j54d93/Dcard-2022-Web-Frontend-Intern-Homework#responsive-web-design)
    - [Dcard Favicon！～](https://github.com/5j54d93/Dcard-2022-Web-Frontend-Intern-Homework#-dcard-favicon)
 4. [**LICENSE：MIT**](https://github.com/5j54d93/Dcard-2022-Web-Frontend-Intern-Homework#mit-license-ricky-chuang)
 
