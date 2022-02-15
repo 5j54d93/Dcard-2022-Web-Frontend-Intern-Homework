@@ -173,7 +173,7 @@ If [5j54d93.github.io/Dcard-2022-Web-Frontend-Intern-Homework](https://5j54d93.g
 
 ### Responsive Web Design
 
-Because of Bootstrap, this React app could response well on every different devices！
+Thanks to Bootstrap, this React app could response well on every different devices！
 
 ### 🥰 Dcard Favicon！～
 
