@@ -18,6 +18,7 @@ A [**React**](https://reactjs.org) app design with [Bootstrap](https://bootstrap
    - [RepoDetail.js](https://github.com/5j54d93/Dcard-2022-Web-Frontend-Intern-Homework#repodetailjsdisplay-repository-details)：display repository detail
 3. [**Learn More**](https://github.com/5j54d93/Dcard-2022-Web-Frontend-Intern-Homework#learn-more)
    - [Rate Limit](https://github.com/5j54d93/Dcard-2022-Web-Frontend-Intern-Homework#rate-limit)
+   - [Responsive Web Design]()
    - [Dcard Favicon！～](https://github.com/5j54d93/Dcard-2022-Web-Frontend-Intern-Homework#-dcard-favicon)
 4. [**LICENSE：MIT**](https://github.com/5j54d93/Dcard-2022-Web-Frontend-Intern-Homework#mit-license-ricky-chuang)
 
@@ -169,6 +170,10 @@ if (
 ### Rate Limit
 
 If [5j54d93.github.io/Dcard-2022-Web-Frontend-Intern-Homework](https://5j54d93.github.io/Dcard-2022-Web-Frontend-Intern-Homework) or this React app that run on your computer didn't work well, you may exceed GitHub Rest API Rate Limit which is up to 60 requests per hour. For more information, [view this official doc](https://docs.github.com/en/rest/overview/resources-in-the-rest-api#rate-limiting).
+
+### Responsive Web Design
+
+Because of Bootstrap, this React app could response well on every different devices！
 
 ### 🥰 Dcard Favicon！～
 
