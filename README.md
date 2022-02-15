@@ -27,7 +27,7 @@ A [**React**](https://reactjs.org) app design with [Bootstrap](https://github.co
    - [Responsive Web Design](https://github.com/5j54d93/Dcard-2022-Web-Frontend-Intern-Homework#responsive-web-design)
    - [Lighthouse：PageSpeed Insights](https://github.com/5j54d93/Dcard-2022-Web-Frontend-Intern-Homework#lighthousepagespeed-insights)
    - [Dcard Favicon！～](https://github.com/5j54d93/Dcard-2022-Web-Frontend-Intern-Homework#-dcard-favicon)
-4. [**LICENSE：MIT**](https://github.com/5j54d93/Dcard-2022-Web-Frontend-Intern-Homework#mit-license-ricky-chuang)
+4. [**LICENSE**](https://github.com/5j54d93/Dcard-2022-Web-Frontend-Intern-Homework#license)
 
 ## How To Use
 
@@ -205,6 +205,6 @@ Performance score got orange（50-89）because of using Bootstrap which cost 0.1
 
 <img src="https://github.com/5j54d93/Dcard-2022-Web-Frontend-Intern-Homework/blob/main/.github/Asset/DcardFavicon.png" width='50%' height='100%'/>
 
-## MIT License｜© Ricky Chuang
+## License
 
-This package is licensed under MIT license. See [LICENSE](https://github.com/5j54d93/Dcard-2022-Web-Frontend-Intern-Homework/blob/main/LICENSE) for details.  
+This package is [MIT licensed](https://github.com/5j54d93/Dcard-2022-Web-Frontend-Intern-Homework/blob/main/LICENSE).
