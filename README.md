@@ -179,7 +179,7 @@ Thanks to Bootstrap, our React app could response well on every different device
 
 ### Lighthouse：PageSpeed Insights
 
-#### All performance scores get 100 on PC
+#### All performance scores got 100 on desktop.
 
 #### [App](https://github.com/5j54d93/Dcard-2022-Web-Frontend-Intern-Homework/blob/main/src/App.js) on mobile
 
@@ -187,7 +187,7 @@ Thanks to Bootstrap, our React app could response well on every different device
 
 #### [RepoList](https://github.com/5j54d93/Dcard-2022-Web-Frontend-Intern-Homework/blob/main/src/RepoList.js) on mobile
 
-Performance get orange because of using Bootstrap which cost 0.15s to load.
+Performance score got orange（50-89）because of using Bootstrap which cost 0.15s to load.
 
 <img src="https://github.com/5j54d93/Dcard-2022-Web-Frontend-Intern-Homework/blob/main/.github/Asset/Lighthouse：RepoList.png" width='100%' height='100%'/>
 
