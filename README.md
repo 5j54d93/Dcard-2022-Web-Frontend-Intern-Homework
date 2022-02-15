@@ -19,7 +19,7 @@ A [**React**](https://reactjs.org) app design with [Bootstrap](https://bootstrap
 3. [**Learn More**](https://github.com/5j54d93/Dcard-2022-Web-Frontend-Intern-Homework#learn-more)
    - [Rate Limit](https://github.com/5j54d93/Dcard-2022-Web-Frontend-Intern-Homework#rate-limit)
    - [Responsive Web Design](https://github.com/5j54d93/Dcard-2022-Web-Frontend-Intern-Homework#responsive-web-design)
-   - [Lighthouse：PageSpeed Insights]()
+   - [Lighthouse：PageSpeed Insights on mobile](https://github.com/5j54d93/Dcard-2022-Web-Frontend-Intern-Homework#lighthousepagespeed-insights)
    - [Dcard Favicon！～](https://github.com/5j54d93/Dcard-2022-Web-Frontend-Intern-Homework#-dcard-favicon)
 4. [**LICENSE：MIT**](https://github.com/5j54d93/Dcard-2022-Web-Frontend-Intern-Homework#mit-license-ricky-chuang)
 
@@ -177,7 +177,7 @@ If [5j54d93.github.io/Dcard-2022-Web-Frontend-Intern-Homework](https://5j54d93.g
 
 Thanks to Bootstrap, our React app could response well on every different devices！
 
-### Lighthouse：PageSpeed Insights
+### Lighthouse：PageSpeed Insights on mobile
 
 #### [App](https://github.com/5j54d93/Dcard-2022-Web-Frontend-Intern-Homework/blob/main/src/App.js)
 
@@ -186,6 +186,8 @@ Thanks to Bootstrap, our React app could response well on every different device
 #### [RepoList](https://github.com/5j54d93/Dcard-2022-Web-Frontend-Intern-Homework/blob/main/src/RepoList.js)
 
 <img src="https://github.com/5j54d93/Dcard-2022-Web-Frontend-Intern-Homework/blob/main/.github/Asset/Lighthouse：RepoList.png" width='100%' height='100%'/>
+
+Performance get orange because of using Bootstrap which cost 0.15s to load.
 
 #### [RepoDetail](https://github.com/5j54d93/Dcard-2022-Web-Frontend-Intern-Homework/blob/main/src/RepoDetail.js)
 
