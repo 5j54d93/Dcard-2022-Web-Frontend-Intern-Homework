@@ -7,13 +7,13 @@ export default function RepoList() {
   return (
     <div className="d-flex flex-fill">
       <div className="container">
-        <h2 className="alert alert-primary text-center text-white my-3" style={{ background: 'rgb(51,151,207)', border: 'rgb(51,151,207)' }} role="alert">
+        <h2 className="alert alert-primary text-center text-white my-3" role="alert">
           GitHub Username：{owner}
         </h2>
         <BackToHome />
         <div className="table-responsive-sm">
           <table className="table table-hover table-bordered">
-            <thead style={{ background: 'rgb(3, 106, 166)' }}>
+            <thead>
               <tr className='text-white'>
                 <th className='align-middle text-center' scope="col">#</th>
                 <th className='align-middle text-center' scope="col">Repositories</th>
@@ -92,7 +92,7 @@ class RepoRow extends Component {
   render() {
     if (this.state.message === "Not Found") {
       return (
-        <tbody style={{ color: 'black', background: 'white' }}>
+        <tbody>
           <tr>
             <td className='text-center py-5' colSpan="3"><h2>No such user</h2></td>
           </tr>
@@ -100,7 +100,7 @@ class RepoRow extends Component {
       );
     } else if (this.state.repos.length === 0) {
       return (
-        <tbody style={{ color: 'black', background: 'white' }}>
+        <tbody>
           <tr>
             <td className='text-center py-5' colSpan="3"><h2>Haven't created any repository yet.</h2></td>
           </tr>
@@ -108,25 +108,25 @@ class RepoRow extends Component {
       );
     } else {
       return (
-        <tbody style={{ color: 'black', background: 'white' }}>
+        <tbody>
           {this.state.repos.map((repo, index) => (
             <tr key={index}>
               <th className='align-middle text-center' scope="row">
                 {index + 1}
               </th>
               <td>
-                <div className='fs-5' style={{ fontWeight: '500' }}>
+                <div className='fs-5'>
                   <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" className="bi bi-journal-bookmark" viewBox="0 0 20 20">
                     <path fillRule="evenodd" d="M6 8V1h1v6.117L8.743 6.07a.5.5 0 0 1 .514 0L11 7.117V1h1v7a.5.5 0 0 1-.757.429L9 7.083 6.757 8.43A.5.5 0 0 1 6 8z" />
                     <path d="M3 0h10a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2v-1h1v1a1 1 0 0 0 1 1h10a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H3a1 1 0 0 0-1 1v1H1V2a2 2 0 0 1 2-2z" />
                     <path d="M1 5v-.5a.5.5 0 0 1 1 0V5h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1H1zm0 3v-.5a.5.5 0 0 1 1 0V8h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1H1zm0 3v-.5a.5.5 0 0 1 1 0v.5h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1H1z" />
                   </svg>
-                  <Link style={{ color: 'rgb(3, 106, 166)' }} to={repo.name}>{repo.name}</Link>
+                  <Link className='Link' to={repo.name}>{repo.name}</Link>
                 </div>
                 <div>{repo.description}</div>
                 <div>
                   {repo.topics.map((topic, index) =>
-                    <span className="badge rounded-pill me-1" style={{ background: 'rgb(51,151,207)' }} key={index}>{topic}</span>
+                    <span className="badge rounded-pill me-1" key={index}>{topic}</span>
                   )}
                 </div>
               </td>
@@ -145,7 +145,7 @@ class RepoRow extends Component {
 class BackToHome extends Component {
   render() {
     return (
-      <Link className="btn btn-outline-white mb-3" to='/' role='button'>
+      <Link className="btn btn-outline-secondary btnBack mb-3" to='/' role='button'>
         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" className="bi bi-arrow-90deg-left" viewBox="0 0 20 20">
           <path fillRule="evenodd" d="M1.146 4.854a.5.5 0 0 1 0-.708l4-4a.5.5 0 1 1 .708.708L2.707 4H12.5A2.5 2.5 0 0 1 15 6.5v8a.5.5 0 0 1-1 0v-8A1.5 1.5 0 0 0 12.5 5H2.707l3.147 3.146a.5.5 0 1 1-.708.708l-4-4z" />
         </svg> Search for another user
@@ -158,8 +158,8 @@ class LoadMore extends Component {
   render() {
     if (10 * this.props.page < this.props.publicRepoNum) {
       return (
-        <tr>
-          <th className='text-center text-white' style={{ background: 'rgb(3, 106, 166)' }} colSpan="3">
+        <tr className="tfoot">
+          <th className='text-center text-white' colSpan="3">
             <div className="spinner-border align-middle" role="status">
               <span className="visually-hidden">Loading...</span>
             </div>
@@ -168,8 +168,8 @@ class LoadMore extends Component {
       );
     } else {
       return (
-        <tr>
-          <th className='text-center text-white' style={{ background: 'rgb(3, 106, 166)' }} colSpan="3">No more repository</th>
+        <tr className="tfoot">
+          <th className='text-center text-white' colSpan="3">No more repository</th>
         </tr>
       );
     }
