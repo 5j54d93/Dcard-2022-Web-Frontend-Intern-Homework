@@ -34,7 +34,7 @@ a:hover {
 }
 
 /* App */
-input[type=search], input[type=search]:focus, input[type=search]::placeholder {
+input[type], input[type]:focus, input[type]::placeholder {
   color: rgb(195,212,225);
   background: rgb(4,88,138);
   border: rgb(4,88,138);
