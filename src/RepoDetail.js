@@ -53,7 +53,7 @@ export default function RepoDetail() {
 class RepoDetailHeader extends Component {
   render() {
     return (
-      <h2 className="alert alert-primary text-center text-white my-3" style={{ background: 'rgb(51,151,207)', border: 'rgb(51,151,207)' }} role="alert">
+      <h2 className="alert alert-primary text-center text-white my-3" role="alert">
         {this.props.full_name}
       </h2>
     );
@@ -63,7 +63,7 @@ class RepoDetailHeader extends Component {
 class RepoDetailBackToList extends Component {
   render() {
     return (
-      <Link className="btn btn-outline-white mb-3" to={"/users/" + this.props.owner + "/repos"} role="button">
+      <Link className="btn btn-outline-secondary btnBack mb-3" to={"/users/" + this.props.owner + "/repos"} role="button">
         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" className="bi bi-arrow-90deg-left" viewBox="0 0 20 20">
           <path fillRule="evenodd" d="M1.146 4.854a.5.5 0 0 1 0-.708l4-4a.5.5 0 1 1 .708.708L2.707 4H12.5A2.5 2.5 0 0 1 15 6.5v8a.5.5 0 0 1-1 0v-8A1.5 1.5 0 0 0 12.5 5H2.707l3.147 3.146a.5.5 0 1 1-.708.708l-4-4z" />
         </svg> Back to Repository List
@@ -75,9 +75,9 @@ class RepoDetailBackToList extends Component {
 class RepoDetailCard extends Component {
   render() {
     return (
-      <div className="card text-dark">
+      <div className="card">
         <div className="card-body">
-          <h3 className="card-title p-3 mb-2" style={{ background: "rgb(245,245,245)", borderRadius: '5px' }}>
+          <h3 className="card-title p-3 mb-2">
             <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" className="bi bi-journal-bookmark" viewBox="0 0 20 20">
               <path fillRule="evenodd" d="M6 8V1h1v6.117L8.743 6.07a.5.5 0 0 1 .514 0L11 7.117V1h1v7a.5.5 0 0 1-.757.429L9 7.083 6.757 8.43A.5.5 0 0 1 6 8z" />
               <path d="M3 0h10a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2v-1h1v1a1 1 0 0 0 1 1h10a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H3a1 1 0 0 0-1 1v1H1V2a2 2 0 0 1 2-2z" />
@@ -92,10 +92,10 @@ class RepoDetailCard extends Component {
             <li className="card-text"><b>Language：</b>{this.props.language}</li>
           </ul>
           <div className='d-flex justify-content-end'>
-            <a href={this.props.html_url} className="stretched-link btn btn-outline-primary" target='_blank' rel="noreferrer noopener">Repository on GitHub</a>
+            <a href={this.props.html_url} className="btn btn-outline-secondary stretched-link" target='_blank' rel="noreferrer" role='button'>Repository on GitHub</a>
           </div>
         </div>
-      </div >
+      </div>
     );
   }
 }
