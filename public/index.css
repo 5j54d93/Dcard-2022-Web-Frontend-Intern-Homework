@@ -6,7 +6,7 @@ body {
   color: white;
   border-color: white;
 }
-.btnBack:hover {
+.btnBack:hover, .btn-outline-secondary:hover {
   border-color: rgb(51,151,207);
   background-color: rgb(51,151,207);
 }
@@ -80,9 +80,5 @@ tbody {
 }
 .btn-outline-secondary {
   color: rgb(51, 151, 207);
-  border-color: rgb(51, 151, 207);
-}
-.btn-outline-secondary:hover {
-  background-color: rgb(51, 151, 207);
   border-color: rgb(51, 151, 207);
 }
