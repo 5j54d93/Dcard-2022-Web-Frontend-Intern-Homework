@@ -1,30 +1,6 @@
 body {
-  color: white;
   background-color: rgb(0, 50, 78);
 }
-.btnBack {
-  color: white;
-  border-color: white;
-}
-.btnBack:hover, .btn-outline-secondary:hover {
-  border-color: rgb(51,151,207);
-  background-color: rgb(51,151,207);
-}
-
-/* Navbar */
-.sticky-top {
-  background: rgb(3, 106, 166);
-}
-#GitHubBtn {
-  color: white;
-  border-color: white; 
-}
-#GitHubBtn:hover {
-  color: white;
-  border-color: black; 
-}
-
-/* Footer */
 a {
   text-decoration: none;
   color: white;
@@ -32,53 +8,90 @@ a {
 a:hover {
   color: rgb(51, 151, 207);
 }
+.middle-blue {
+  background-color: rgb(0, 106, 166);
+}
+.text-middle-blue {
+  color: rgb(0, 106, 166);
+}
+.text-light-white {
+  color: rgb(185,196,205);
+}
+.text-light-gray {
+  color: rgb(158,158,158);
+}
+.text-dark-gray {
+  color: rgb(122,121,122);
+}
+.text-black {
+  color: rgb(64, 64, 64);
+}
 
-/* App */
+/* Navbar */
+.btn-outline-dark {
+  color: white;
+  background-color: rgb(51, 151, 207);
+  border-color: rgb(51,151,207);
+}
+
+/* Search */
 input[type], input[type]:focus, input[type]::placeholder {
-  color: rgb(195,212,225);
+  color: rgb(197,214,226);
   background: rgb(4,88,138);
   border: rgb(4,88,138);
 }
-#searchButton {
-  background: rgb(3, 106, 166);
-  border: rgb(4,88,138);
+.btnSearch, .btnSearch:hover {
+  background-color: rgb(0, 106, 166);
+  border-color: rgb(0, 106, 166);
 }
 
 /* RepoList */
-.alert {
-  background-color: rgb(51,151,207);
-  border: rgb(51,151,207);
+.backContainer {
+  background-color: rgb(98,169,205);
+  max-width: 760px;
+  padding: 0;
+  border-radius: 12px;
 }
-thead {
-  background-color: rgb(3, 106, 166);
+.frontContainer {
+  background-color: rgb(242,243,244);
+  margin-top: 200px;
+  border-radius: 0px 0px 12px 12px;
 }
-tbody {
-  color: black;
+.repoListContent {
+  position: relative;
+  top: -6.8rem;
+}
+.repoRowContainer {
   background-color: white;
+  border-radius: 12px;
 }
-.fs-5 {
-  font-weight: 500;
-}
-.Link {
-  color: rgb(3, 106, 166);
-}
-.badge {
+.btn-light-blue {
+  display: block;
+  border-radius: 8px;
+  padding: 5px 15px;
   background-color: rgb(51,151,207);
 }
-.tfoot {
-  background-color: rgb(3, 106, 166);
+.btn-light-blue:hover {
+  color: white;
+  background-color: rgb(90, 176, 219);
+}
+.starIcon {
+  color: rgb(234,197,79);
+}
+.codeIcon {
+  color: rgb(234,92,92);
 }
 
 /* RepoDetail */
-.card-title {
-  color: black;
-  background: rgb(245,245,245);
-  border-radius: 5px;
+.repoDetailContainer {
+  background-color: white;
+  max-width: 760px;
+  border-radius: 12px;
 }
-.card-text {
-  color: black;
-}
-.btn-outline-secondary {
-  color: rgb(51, 151, 207);
-  border-color: rgb(51, 151, 207);
+.topic {
+  display: block;
+  padding: 5px 18px;
+  border-radius: 20px;
+  color: rgb(60, 60, 60);
+  background-color: rgb(239,239,239);
 }
