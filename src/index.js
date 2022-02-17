@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 import Navbar from './Navbar';
-import App from './App';
+import Search from './Search';
 import RepoList from './RepoList';
 import RepoDetail from './RepoDetail';
 import Footer from './Footer';
@@ -14,7 +14,7 @@ ReactDOM.render(
       <Navbar />
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<App />} />
+          <Route path="/" element={<Search />} />
           <Route path="/users/:owner/repos" element={<RepoList />} />
           <Route path="/users/:owner/repos/:repo" element={<RepoDetail />} />
         </Routes>
