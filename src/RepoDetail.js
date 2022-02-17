@@ -1,101 +1,104 @@
-import React, { Component, useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { Link, useParams } from "react-router-dom";
+
+// API call
+function FetchRepoData(owner, repo) {
+  const [data, setData] = useState([]);
+
+  useEffect(() => {
+    let url = 'https://api.github.com/repos/' + owner + '/' + repo;
+    const fetchData = async () => {
+      try {
+        const response = await fetch(url);
+        const json = await response.json();
+        setData(json);
+      } catch (error) {
+        console.log(error.message);
+      }
+    }
+    fetchData();
+  }, [owner, repo]);
+
+  return data;
+}
 
 export default function RepoDetail() {
   let { owner, repo } = useParams();
-  const [error, setError] = useState(null);
-  const [isLoaded, setIsLoaded] = useState(false);
-  const [items, setItems] = useState([]);
+  const repoData = FetchRepoData(owner, repo);
 
-  useEffect(() => {
-    fetch("https://api.github.com/repos/" + owner + "/" + repo)
-      .then(res => res.json())
-      .then(
-        (result) => {
-          setIsLoaded(true);
-          setItems(result);
-        },
-        // Note: it's important to handle errors here
-        // instead of a catch() block so that we don't swallow
-        // exceptions from actual bugs in components.
-        (error) => {
-          setIsLoaded(true);
-          setError(error);
-        }
-      )
-  }, [owner, repo])
-
-  if (error) {
-    return <div className="container">Error: {error.message}</div>;
-  } else if (!isLoaded) {
+  if (repoData) {
     return (
-      <div className="d-flex flex-fill">
-        <div className="container">
-          <RepoDetailHeader full_name='Loading...' />
-          <RepoDetailBackToList owner={owner} />
-          <RepoDetailCard name='Loading...' description='Loading...' stargazers_count='Loading...' forks_count='Loading...' language='Loading...' />
-        </div>
-      </div>
-    );
-  } else {
-    return (
-      <div className="d-flex flex-fill">
-        <div className="container">
-          <RepoDetailHeader full_name={items.full_name} />
-          <RepoDetailBackToList owner={owner} />
-          <RepoDetailCard name={items.name} description={items.description} stargazers_count={items.stargazers_count} forks_count={items.forks_count} language={items.language} html_url={items.html_url} />
-        </div>
-      </div>
-    );
-  }
-}
-
-class RepoDetailHeader extends Component {
-  render() {
-    return (
-      <h2 className="alert alert-primary text-center text-white my-3" role="alert">
-        {this.props.full_name}
-      </h2>
-    );
-  }
-}
-
-class RepoDetailBackToList extends Component {
-  render() {
-    return (
-      <Link className="btn btn-outline-primary btnBack mb-3" to={"/users/" + this.props.owner + "/repos"} role="button">
-        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" className="bi bi-arrow-90deg-left" viewBox="0 0 20 20">
-          <path fillRule="evenodd" d="M1.146 4.854a.5.5 0 0 1 0-.708l4-4a.5.5 0 1 1 .708.708L2.707 4H12.5A2.5 2.5 0 0 1 15 6.5v8a.5.5 0 0 1-1 0v-8A1.5 1.5 0 0 0 12.5 5H2.707l3.147 3.146a.5.5 0 1 1-.708.708l-4-4z" />
-        </svg> Back to Repo List
-      </Link>
-    );
-  }
-}
-
-class RepoDetailCard extends Component {
-  render() {
-    return (
-      <div className="card">
-        <div className="card-body">
-          <h3 className="card-title p-3 mb-2">
-            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" className="bi bi-journal-bookmark" viewBox="0 0 20 20">
-              <path fillRule="evenodd" d="M6 8V1h1v6.117L8.743 6.07a.5.5 0 0 1 .514 0L11 7.117V1h1v7a.5.5 0 0 1-.757.429L9 7.083 6.757 8.43A.5.5 0 0 1 6 8z" />
-              <path d="M3 0h10a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2v-1h1v1a1 1 0 0 0 1 1h10a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H3a1 1 0 0 0-1 1v1H1V2a2 2 0 0 1 2-2z" />
-              <path d="M1 5v-.5a.5.5 0 0 1 1 0V5h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1H1zm0 3v-.5a.5.5 0 0 1 1 0V8h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1H1zm0 3v-.5a.5.5 0 0 1 1 0v.5h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1H1z" />
+      <div className="d-flex flex-fill align-items-center">
+        <main className="container my-4 p-5 repoDetailContainer">
+          <RepoOwner owner={repoData.owner} />
+          <h1 className='text-dark fs-2 mb-3'>{repoData.full_name}</h1>
+          <Link to={"/users/" + owner + "/repos"} style={{ color: 'rgb(51, 151, 207)' }}>Repo List</Link>
+          <PublishTime pushed_at={repoData.pushed_at} />
+          <p className="description mt-4 mb-5">{repoData.description}</p>
+          <RepoTopics topics={repoData.topics} />
+          <div className="text-light-gray d-flex align-items-center gap-2 mt-4">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="starIcon bi bi-star-fill" viewBox="0 0 16 16">
+              <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z" />
             </svg>
-            {this.props.name}
-          </h3>
-          <div className="card-text my-2 ps-1"><b>Description：</b>{this.props.description}</div>
-          <ul>
-            <li className="card-text"><b>Total Starts Earned：</b>{this.props.stargazers_count}</li>
-            <li className="card-text"><b>Forks Count：</b>{this.props.forks_count}</li>
-            <li className="card-text"><b>Language：</b>{this.props.language}</li>
-          </ul>
-          <div className='d-flex justify-content-end'>
-            <a href={this.props.html_url} className="btn btn-outline-secondary stretched-link" target='_blank' rel="noreferrer" role='button'>Repository on GitHub</a>
+            <span className='me-3'>{repoData.stargazers_count}</span>
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-diagram-2-fill" viewBox="0 0 16 16">
+              <path fillRule="evenodd" d="M6 3.5A1.5 1.5 0 0 1 7.5 2h1A1.5 1.5 0 0 1 10 3.5v1A1.5 1.5 0 0 1 8.5 6v1H11a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-1 0V8h-5v.5a.5.5 0 0 1-1 0v-1A.5.5 0 0 1 5 7h2.5V6A1.5 1.5 0 0 1 6 4.5v-1zm-3 8A1.5 1.5 0 0 1 4.5 10h1A1.5 1.5 0 0 1 7 11.5v1A1.5 1.5 0 0 1 5.5 14h-1A1.5 1.5 0 0 1 3 12.5v-1zm6 0a1.5 1.5 0 0 1 1.5-1.5h1a1.5 1.5 0 0 1 1.5 1.5v1a1.5 1.5 0 0 1-1.5 1.5h-1A1.5 1.5 0 0 1 9 12.5v-1z" />
+            </svg>
+            <span className='me-3'>{repoData.forks_count}</span>
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="codeIcon bi bi-code-slash" viewBox="0 0 16 16">
+              <path d="M10.478 1.647a.5.5 0 1 0-.956-.294l-4 13a.5.5 0 0 0 .956.294l4-13zM4.854 4.146a.5.5 0 0 1 0 .708L1.707 8l3.147 3.146a.5.5 0 0 1-.708.708l-3.5-3.5a.5.5 0 0 1 0-.708l3.5-3.5a.5.5 0 0 1 .708 0zm6.292 0a.5.5 0 0 0 0 .708L14.293 8l-3.147 3.146a.5.5 0 0 0 .708.708l3.5-3.5a.5.5 0 0 0 0-.708l-3.5-3.5a.5.5 0 0 0-.708 0z" />
+            </svg>
+            <span className='me-auto'>{repoData.language}</span>
+            <a className="btn-light-blue mt-auto" href={repoData.html_url} role="button" target='_blank' rel="noreferrer">View on GitHub</a>
           </div>
-        </div>
+        </main>
       </div>
     );
   }
+}
+
+RepoOwner.defaultProps = {
+  owner: {
+    login: '',
+    avatar_url: ''
+  }
+}
+function RepoOwner(props) {
+  return (
+    <div className="d-flex align-items-center gap-2 mb-4">
+      <img className="img-fluid" style={{ borderRadius: '50%' }} src={props.owner.avatar_url} alt={'GitHub user：' + props.owner.login} width='32px' height='32px' />
+      <span className='text-dark-gray fs-5 fw-light me-auto'>{props.owner.login}</span>
+      <Link className='text-light-gray' to={"/users/" + props.owner.login + "/repos"}>
+        <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" fill="currentColor" className="bi bi-x-lg" viewBox="0 0 14 14">
+          <path fillRule="evenodd" d="M13.854 2.146a.5.5 0 0 1 0 .708l-11 11a.5.5 0 0 1-.708-.708l11-11a.5.5 0 0 1 .708 0Z" />
+          <path fillRule="evenodd" d="M2.146 2.146a.5.5 0 0 0 0 .708l11 11a.5.5 0 0 0 .708-.708l-11-11a.5.5 0 0 0-.708 0Z" />
+        </svg>
+      </Link>
+    </div>
+  );
+}
+
+PublishTime.defaultProps = {
+  publicTime: ''
+}
+function PublishTime(props) {
+  const publicTime = new Date(props.pushed_at);
+  return (
+    <span className="text-light-gray">・{publicTime.getFullYear()}年{publicTime.getMonth() + 1}月{publicTime.getDate() + 1}日 {publicTime.getHours()}:{publicTime.getMinutes()}</span>
+  );
+}
+
+RepoTopics.defaultProps = {
+  topics: []
+}
+function RepoTopics(props) {
+  return (
+    <div className="d-flex flex-wrap gap-2">
+      {props.topics.map((topic, index) => (
+        <span className="topic" key={index}>
+          {topic}
+        </span>
+      ))}
+    </div>
+  );
 }
