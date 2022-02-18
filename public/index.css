@@ -78,6 +78,9 @@ input[type], input[type]:focus, input[type]::placeholder {
 .starIcon {
   color: rgb(234,197,79);
 }
+.forkIcon {
+  color: rgb(51, 151, 207);
+}
 .codeIcon {
   color: rgb(234,92,92);
 }
