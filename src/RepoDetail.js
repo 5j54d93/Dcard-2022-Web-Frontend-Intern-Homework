@@ -33,7 +33,7 @@ export default function RepoDetail() {
           <RepoOwner owner={repoData.owner} />
           <h1 className='text-dark fs-2 mb-3'>{repoData.full_name}</h1>
           <Link to={"/users/" + owner + "/repos"} style={{ color: 'rgb(51, 151, 207)' }}>Repo List</Link>
-          <PublishTime pushed_at={repoData.pushed_at} />
+          <CreateTime created_at={repoData.created_at} />
           <p className="description mt-4 mb-5">{repoData.description}</p>
           <RepoTopics topics={repoData.topics} />
           <div className="text-light-gray d-flex flex-wrap align-items-center gap-2 mt-4">
@@ -78,13 +78,13 @@ function RepoOwner(props) {
   );
 }
 
-PublishTime.defaultProps = {
-  publicTime: ''
+CreateTime.defaultProps = {
+  createTime: ''
 }
-function PublishTime(props) {
-  const publicTime = new Date(props.pushed_at);
+function CreateTime(props) {
+  const createTime = new Date(props.created_at);
   return (
-    <span className="text-light-gray">・{publicTime.getFullYear()}年{publicTime.getMonth() + 1}月{publicTime.getDate() + 1}日 {publicTime.getHours()}:{publicTime.getMinutes()}</span>
+    <span className="text-light-gray">・{createTime.getFullYear()}年{createTime.getMonth() + 1}月{createTime.getDate() + 1}日 {createTime.getHours()}:{createTime.getMinutes()}</span>
   );
 }
 
