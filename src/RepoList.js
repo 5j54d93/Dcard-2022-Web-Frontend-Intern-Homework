@@ -144,10 +144,10 @@ function RepoRow(props) {
   }, [page, props.userData.public_repos])
 
   return (
-    <div>
+    <>
       {repoData.map((repo, index) => (
         <Link to={repo.name} key={index}>
-          <div className="d-flex align-items-center gap-2 mb-2">
+          <div className="d-flex flex-wrap align-items-center gap-2 lh-1 mb-2">
             <img className="img-fluid" style={{ borderRadius: '50%' }} src={props.userData.avatar_url} alt={props.userData.name} width='20px' height='20px' />
             <span className='text-dark-gray fs-6 fw-light me-auto' style={{ fontSize: '0.8rem' }}>{props.userData.name}</span>
             <span className='text-dark-gray fs-6 fw-light' style={{ fontSize: '0.8rem' }}><CreateTime created_at={repo.created_at} displayTime={false} /></span>
@@ -161,7 +161,7 @@ function RepoRow(props) {
         </Link>
       ))}
       <Progress page={page} publicRepoNum={props.userData.public_repos} />
-    </div>
+    </>
   );
 }
 
