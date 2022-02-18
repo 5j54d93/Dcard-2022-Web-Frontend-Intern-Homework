@@ -107,7 +107,7 @@ function GitHubUser(props) {
   return (
     <>
       <img className="ms-2 my-3" style={{ borderRadius: '50%', border: '6px solid rgb(242,243,244)' }} src={props.userData.avatar_url} alt={props.userData.name} width='142px' height='142px' />
-      <header className="d-flex flex-wrap ms-2 mb-3">
+      <header className="d-flex flex-wrap ms-2 mb-3 gap-1">
         <div className='text-dark fs-5 fw-bold lh-1 me-auto mb-2'>
           {props.userData.name}<br />
           <span className='text-light-gray fw-light' style={{ fontSize: '0.9rem' }}>@{props.username}</span>
