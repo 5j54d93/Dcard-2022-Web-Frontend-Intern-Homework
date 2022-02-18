@@ -95,3 +95,6 @@ input[type], input[type]:focus, input[type]::placeholder {
   color: rgb(60, 60, 60);
   background-color: rgb(239,239,239);
 }
+.topic:hover {
+  color: rgb(60, 60, 60);
+}
