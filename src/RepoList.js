@@ -27,7 +27,7 @@ function FetchUserRepos(username, page) {
   const [data, setData] = useState([]);
 
   useEffect(() => {
-    let url = 'https://api.github.com/users/' + username + '/repos?per_page=10&page=' + page;
+    let url = 'https://api.github.com/users/' + username + '/repos?sort=created&per_page=10&page=' + page;
     const fetchData = async () => {
       try {
         const response = await fetch(url);
