@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { Link, useParams } from "react-router-dom";
 
+import CreateTime from './CreateTime';
+
 // API call
 function FetchRepoData(owner, repo) {
   const [data, setData] = useState([]);
@@ -33,7 +35,7 @@ export default function RepoDetail() {
           <RepoOwner owner={repoData.owner} />
           <h1 className='text-dark fs-2 mb-3'>{repoData.full_name}</h1>
           <Link to={"/users/" + owner + "/repos"} style={{ color: 'rgb(51, 151, 207)' }}>Repo List</Link>
-          <CreateTime created_at={repoData.created_at} />
+          <span className="text-light-gray">・<CreateTime created_at={repoData.created_at} displayTime={true} /></span>
           <p className="description mt-4 mb-5">{repoData.description}</p>
           <RepoTopics topics={repoData.topics} />
           <div className="text-light-gray d-flex flex-wrap align-items-center gap-2 mt-4">
@@ -75,18 +77,6 @@ function RepoOwner(props) {
         </svg>
       </Link>
     </div>
-  );
-}
-
-function CreateTime(props) {
-  const createTime = new Date(props.created_at);
-  return (
-    <span className="text-light-gray">
-      ・
-      {createTime.getFullYear()}年
-      {createTime.getMonth() + 1}月
-      {createTime.getDate() + 1}日 {('0' + createTime.getHours()).slice(-2)}:{('0' + createTime.getMinutes()).slice(-2)}
-    </span>
   );
 }
 
