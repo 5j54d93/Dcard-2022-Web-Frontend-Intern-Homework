@@ -1,8 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Link, useParams } from "react-router-dom";
 
-import CreateTime from './CreateTime';
-
 // API call
 function FetchRepoData(owner, repo) {
   const [data, setData] = useState([]);
@@ -77,6 +75,18 @@ function RepoOwner(props) {
         </svg>
       </Link>
     </div>
+  );
+}
+
+function CreateTime(props) {
+  const createTime = new Date(props.created_at);
+  return (
+    <span className="text-light-gray">
+      ・
+      {createTime.getFullYear()}年
+      {createTime.getMonth() + 1}月
+      {createTime.getDate() + 1}日 {('0' + createTime.getHours()).slice(-2)}:{('0' + createTime.getMinutes()).slice(-2)}
+    </span>
   );
 }
 
