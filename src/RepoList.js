@@ -146,7 +146,8 @@ function RepoRow(props) {
         <Link to={repo.name} key={index}>
           <div className="d-flex align-items-center gap-2 mb-2">
             <img className="img-fluid" style={{ borderRadius: '50%' }} src={props.userData.avatar_url} alt={props.userData.name} width='20px' height='20px' />
-            <span className='text-dark-gray fs-6 fw-light' style={{ fontSize: '0.8rem' }}>{props.userData.name}</span>
+            <span className='text-dark-gray fs-6 fw-light me-auto' style={{ fontSize: '0.8rem' }}>{props.userData.name}</span>
+            <CreateTime created_at={repo.created_at} />
           </div>
           <p className='text-dark fs-5 fw-bold'>{repo.name}</p>
           <p className='text-black mb-3' style={{ fontSize: '0.9rem' }}>{repo.description}</p>
@@ -169,6 +170,16 @@ function RepoRow(props) {
       ))}
       <Progress page={page} publicRepoNum={props.userData.public_repos} />
     </div>
+  );
+}
+
+function CreateTime(props) {
+  const createTime = new Date(props.created_at);
+  const monthNames = ['Jan', 'Feb', 'Mar', 'Apr', "May", 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+  return (
+    <span className='text-dark-gray fs-6 fw-light' style={{ fontSize: '0.8rem' }}>
+      {createTime.getDate() + 1} {monthNames[createTime.getMonth()]} {createTime.getFullYear()}
+    </span>
   );
 }
 
