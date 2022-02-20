@@ -66,13 +66,13 @@ export default function UserPage() {
       <div className='container my-4 backContainer'>
         <div className='px-5 frontContainer'>
           <main className='userPageContent'>
-            <GitHubUser username={owner} userData={userData} />
+            <GitHubUser username={userData.login} userData={userData} />
             <div className='container repoRowContainer p-4 mt-2'>
               {userData.message === 'Not Found'
                 ? <div className='fs-3 text-center text-middle-blue'>No Such User.</div>
                 : userData.public_repos === 0
                   ? <div className='fs-3 text-center text-middle-blue'>Haven't created any repository yet.</div>
-                  : <RepoList username={owner} userData={userData} />
+                  : <RepoList username={userData.login} userData={userData} />
               }
             </div>
           </main>
@@ -97,7 +97,7 @@ function GitHubUser(props) {
           </span>
         </div>
         {props.userData.message === 'Not Found'
-          ? <a className='btn-light-blue' href='/' role='button'>Search another User</a>
+          ? <a className='btn-light-blue' href='/Dcard-2022-Web-Frontend-Intern-Homework' role='button'>Search another User</a>
           : <FollowButton avatarUrl={props.userData.avatar_url} name={props.userData.name} username={props.username} />
         }
       </header>
