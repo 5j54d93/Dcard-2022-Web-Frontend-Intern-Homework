@@ -96,7 +96,7 @@ function GitHubUser(props) {
             {props.userData.followers} followers · {props.userData.following} following
           </span>
         </div>
-        {props.userData.message == 'Not Found'
+        {props.userData.message === 'Not Found'
           ? <a className='btn-light-blue' href='/Dcard-2022-Web-Frontend-Intern-Homework' role='button'>Search another User</a>
           : <FollowButton avatarUrl={props.userData.avatar_url} name={props.userData.name} username={props.username} />
         }
