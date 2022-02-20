@@ -95,73 +95,48 @@ ReactDOM.render(
 
 <img src="https://github.com/5j54d93/Dcard-2022-Web-Frontend-Intern-Homework/blob/main/.github/Asset/Search.png" width='100%' height='100%'/>
 
-### [RepoList.js](https://github.com/5j54d93/Dcard-2022-Web-Frontend-Intern-Homework/blob/main/src/RepoList.js)：list all the GitHub user's repositories
+### [UserPage.js](https://github.com/5j54d93/Dcard-2022-Web-Frontend-Intern-Homework/blob/main/src/UserPage.js)：show the GitHub user's info ＆ list all repositories
 
-- check wether a user exist or not from API call：[`GET /users/{username}`](https://docs.github.com/en/rest/reference/users#get-a-user)
-- [Link to code](https://github.com/5j54d93/Dcard-2022-Web-Frontend-Intern-Homework/blob/177b5b1d0af12f8d1a8fc484c2358ab0f065bbfe/src/RepoList.js#L50-L61)
+- first check if what user search had already saved in `sessionStorage`
+  - if yes：get data from `sessionStorage`
+  - else：fetch data from API call [`GET /users/{username}`](https://docs.github.com/en/rest/reference/users#get-a-user)
+- [link to code below](https://github.com/5j54d93/Dcard-2022-Web-Frontend-Intern-Homework/blob/2824d3745cf60c43d34638ef1ee50c0da5a21cb2/src/UserPage.js#L60-L62)
 
 ```jsx
-checkUser = () => {
-  let url = 'https://api.github.com/users/' + this.props.username
+const userData =
+    sessionStorage.GitHubUser && JSON.parse(sessionStorage.getItem('GitHubUser')).login === owner
+      ? JSON.parse(sessionStorage.getItem('GitHubUser'))
+      : FetchGitHubUser(owner);
+```
 
-  fetch(url)
-    .then(res => res.json())
-    .then(data => {
-      this.setState({
-        message: data.message,
-        publicRepoNum: data.public_repos
-      })
-    });
+- if username isn't exit：show「Search another User」button, that click will go back to search page
+- else：show「follow」button
+- [link to code below](https://github.com/5j54d93/Dcard-2022-Web-Frontend-Intern-Homework/blob/2824d3745cf60c43d34638ef1ee50c0da5a21cb2/src/UserPage.js#L99-L102)
+
+```jsx
+{props.userData.message === 'Not Found'
+  ? <a className='btn-light-blue' href='/' role='button'>Search another User</a>
+  : <FollowButton avatarUrl={props.userData.avatar_url} name={props.userData.name} username={props.username} />
 }
 ```
 
-<img src="https://github.com/5j54d93/Dcard-2022-Web-Frontend-Intern-Homework/blob/main/.github/Asset/No-such-user.png" width='100%' height='100%'/>
+- if username isn't exit：show「No Such User」
+- else if number of user's repo == 0：show「Haven't created any repository yet」
+  - else：list all repositories
+- [link to code below](https://github.com/5j54d93/Dcard-2022-Web-Frontend-Intern-Homework/blob/2824d3745cf60c43d34638ef1ee50c0da5a21cb2/src/UserPage.js#L71-L76)
 
-- if no：display「No such user」
-- if yes：fetch his/her public repositories from API call：[`GET /users/{username}/repos`](https://docs.github.com/en/rest/reference/repos#list-repositories-for-a-user)
-- [Link to code](https://github.com/5j54d93/Dcard-2022-Web-Frontend-Intern-Homework/blob/177b5b1d0af12f8d1a8fc484c2358ab0f065bbfe/src/RepoList.js#L80-L90)
 ```jsx
-fetchData = (pageNum) => {
-  let Url = 'https://api.github.com/users/' + this.props.username + '/repos?per_page=10&page=' + pageNum;
-
-  fetch(Url)
-    .then(res => res.json())
-    .then(data => {
-      this.setState({
-        repos: [...this.state.repos, ...data]
-      })
-    });
+{userData.message === 'Not Found'
+  ? <div className='fs-3 text-center text-middle-blue'>No Such User.</div>
+  : userData.public_repos === 0
+    ? <div className='fs-3 text-center text-middle-blue'>Haven't created any repository yet.</div>
+    : <RepoList username={owner} userData={userData} />
 }
 ```
 
-<img src="https://github.com/5j54d93/Dcard-2022-Web-Frontend-Intern-Homework/blob/main/.github/Asset/Haven't-created-any-repository-yet.png" width='100%' height='100%'/>
+<img src="https://github.com/5j54d93/Dcard-2022-Web-Frontend-Intern-Homework/blob/main/.github/Asset/UserPage.png" width='100%' height='100%'/>
 
-- if repositoy count == 0：display「Haven't created any repository yet」
-- else：list all his/her repositories
-  - using [parameter](https://docs.github.com/en/rest/reference/repos#list-repositories-for-a-user--parameters)
-    - `per_page=10`：fetch 10 repositories per `page` on every API call
-    - `page`：default = 1
-  - infinite scroll：using `Math.round` to work well on Chrome
-  - [Link to code](https://github.com/5j54d93/Dcard-2022-Web-Frontend-Intern-Homework/blob/177b5b1d0af12f8d1a8fc484c2358ab0f065bbfe/src/RepoList.js#L63-L78)
 
-```jsx
-if (
-  Math.round(window.innerHeight + document.documentElement.scrollTop) === document.documentElement.offsetHeight
-  &&
-  10 * this.state.page < this.state.publicRepoNum
-)
-```
-
-- if reach bottom of the page && there's more repositories to fetch
-  - increase `page` by 1
-  - call API
-  - show「progress view」at table foot
-- else：
-  - do nothing（won't call API）
-  - show「No more repository」at table foot
-
-<img src="https://github.com/5j54d93/Dcard-2022-Web-Frontend-Intern-Homework/blob/main/.github/Asset/RepoList.png" width='100%' height='100%'/>
-<img src="https://github.com/5j54d93/Dcard-2022-Web-Frontend-Intern-Homework/blob/main/.github/Asset/No-more-repository.png" width='100%' height='100%'/>
 
 ### [RepoDetail.js](https://github.com/5j54d93/Dcard-2022-Web-Frontend-Intern-Homework/blob/main/src/RepoDetail.js)：display repository details
 - fetch data from API call：[`GET /repos/{owner}/{repo}`](https://docs.github.com/en/rest/reference/repos#get-a-repository)
