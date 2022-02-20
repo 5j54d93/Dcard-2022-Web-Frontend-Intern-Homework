@@ -62,7 +62,7 @@ npm start
 ### [index.js](https://github.com/5j54d93/Dcard-2022-Web-Frontend-Intern-Homework/blob/main/src/index.js)：for direct route
 
 - every page will have [Navbar](https://github.com/5j54d93/Dcard-2022-Web-Frontend-Intern-Homework/blob/main/src/Navbar.js) and [Footer](https://github.com/5j54d93/Dcard-2022-Web-Frontend-Intern-Homework/blob/main/src/Footer.js)
-- default at [Search](https://github.com/5j54d93/Dcard-2022-Web-Frontend-Intern-Homework/blob/main/src/Search.js)
+- default at [Home](https://github.com/5j54d93/Dcard-2022-Web-Frontend-Intern-Homework/blob/main/src/Home.js)
 
 ```jsx
 ReactDOM.render(
@@ -71,7 +71,7 @@ ReactDOM.render(
       <Navbar />
       <BrowserRouter>
         <Routes>
-          <Route path='/' element={<Search />} />
+          <Route path='/' element={<Home />} />
           <Route path='/users/:owner/repos' element={<UserPage />} />
           <Route path='/users/:owner/repos/:repo' element={<RepoDetail />} />
         </Routes>
@@ -83,17 +83,16 @@ ReactDOM.render(
 );
 ```
 
-### [Search.js](https://github.com/5j54d93/Dcard-2022-Web-Frontend-Intern-Homework/blob/main/src/Search.js)：for search a GitHub user ＆ list all following users
+### [Home.js](https://github.com/5j54d93/Dcard-2022-Web-Frontend-Intern-Homework/blob/main/src/Home.js)：for search a GitHub user ＆ list all following users
 
-1. **Search Bar**
-   - a form for user to input a GitHub username
+1. [**`Search()`**](https://github.com/5j54d93/Dcard-2022-Web-Frontend-Intern-Homework/blob/ffa33d92b4c7434372286a3bc01770b1e4ca6420/src/Home.js#L17-L54)
+   - a search bar for user to input a GitHub username
    - can't search if there's no input
-2. **Following Users**
+2. [**`FollowingUser()`**](https://github.com/5j54d93/Dcard-2022-Web-Frontend-Intern-Homework/blob/eba05fb1c4a56daef4b983e00f534f3dcb67ae62/src/Home.js#L56-L81)
    - list all following users
    - data from `localStorage`
-   - use [`memo`](https://github.com/5j54d93/Dcard-2022-Web-Frontend-Intern-Homework/blob/336b48f299b00c9c4862664f214ac38942f0c8fb/src/Search.js#L50) to prevent re-render while input username
 
-<img src="https://github.com/5j54d93/Dcard-2022-Web-Frontend-Intern-Homework/blob/main/.github/Asset/Search.png" width='100%' height='100%'/>
+<img src="https://github.com/5j54d93/Dcard-2022-Web-Frontend-Intern-Homework/blob/main/.github/Asset/Home.png" width='100%' height='100%'/>
 
 ### [UserPage.js](https://github.com/5j54d93/Dcard-2022-Web-Frontend-Intern-Homework/blob/main/src/UserPage.js)：show the GitHub user's info ＆ list all repositories
 
