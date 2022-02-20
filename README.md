@@ -99,7 +99,6 @@ ReactDOM.render(
 - first check if what user search had already saved in `sessionStorage`
   - if yes：get data from `sessionStorage`
   - else：fetch data from API call [`GET /users/{username}`](https://docs.github.com/en/rest/reference/users#get-a-user)
-- [link to code below](https://github.com/5j54d93/Dcard-2022-Web-Frontend-Intern-Homework/blob/2824d3745cf60c43d34638ef1ee50c0da5a21cb2/src/UserPage.js#L60-L62)
 
 ```jsx
 const userData =
@@ -108,21 +107,9 @@ const userData =
       : FetchGitHubUser(owner);
 ```
 
-- if username isn't exit：show「Search another User」button, that click will go back to search page
-- else：show「follow」button
-- [link to code below](https://github.com/5j54d93/Dcard-2022-Web-Frontend-Intern-Homework/blob/2824d3745cf60c43d34638ef1ee50c0da5a21cb2/src/UserPage.js#L99-L102)
-
-```jsx
-{props.userData.message === 'Not Found'
-  ? <a className='btn-light-blue' href='/' role='button'>Search another User</a>
-  : <FollowButton avatarUrl={props.userData.avatar_url} name={props.userData.name} username={props.username} />
-}
-```
-
 - if username isn't exit：show「No Such User」
 - else if number of user's repo == 0：show「Haven't created any repository yet」
   - else：list all repositories
-- [link to code below](https://github.com/5j54d93/Dcard-2022-Web-Frontend-Intern-Homework/blob/2824d3745cf60c43d34638ef1ee50c0da5a21cb2/src/UserPage.js#L71-L76)
 
 ```jsx
 {userData.message === 'Not Found'
@@ -133,9 +120,30 @@ const userData =
 }
 ```
 
+1. [**`GitHubUser()`**](https://github.com/5j54d93/Dcard-2022-Web-Frontend-Intern-Homework/blob/8786c282a180f0b13a866f35e7f4aa9ca353799a/src/UserPage.js#L85-L109)
+   - if username isn't exit：show「Search another User」button, that click will go back to search page
+   - else：show「follow」button
+
+```jsx
+{props.userData.message === 'Not Found'
+  ? <a className='btn-light-blue' href='/' role='button'>Search another User</a>
+  : <FollowButton avatarUrl={props.userData.avatar_url} name={props.userData.name} username={props.username} />
+}
+```
+
+2. [**`RepoList()`**](https://github.com/5j54d93/Dcard-2022-Web-Frontend-Intern-Homework/blob/8786c282a180f0b13a866f35e7f4aa9ca353799a/src/UserPage.js#L111-L139)
+   - handle infinite scroll
+   - using `Math.round()` for work well in Chrome
+
+```jsx
+if (
+  Math.round(window.innerHeight + document.documentElement.scrollTop) === document.documentElement.offsetHeight
+  &&
+  10 * page < props.userData.public_repos
+)
+```
+
 <img src="https://github.com/5j54d93/Dcard-2022-Web-Frontend-Intern-Homework/blob/main/.github/Asset/UserPage.png" width='100%' height='100%'/>
-
-
 
 ### [RepoDetail.js](https://github.com/5j54d93/Dcard-2022-Web-Frontend-Intern-Homework/blob/main/src/RepoDetail.js)：display repository details
 - fetch data from API call：[`GET /repos/{owner}/{repo}`](https://docs.github.com/en/rest/reference/repos#get-a-repository)
