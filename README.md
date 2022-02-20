@@ -8,16 +8,14 @@ _**！！！Add badge here！！！**_
 
 A [**React**](https://reactjs.org) app designed with [Bootstrap](https://github.com/twbs/bootstrap) like [**Dcard**](https://www.dcard.tw) that could：
 
-- search users on [GitHub](https://github.com)
-- list a [GitHub](https://github.com) user's/organize's all repositories from [**GitHub REST API**](https://docs.github.com/en/rest)
+- search users/organizations on [GitHub](https://github.com)
+- list a [GitHub](https://github.com) user's/organization's all repositories from [**GitHub REST API**](https://docs.github.com/en/rest)
 - read repository's detail from [**GitHub REST API**](https://docs.github.com/en/rest)
 - follow or unfollow a user/organize
 
+> [Dcard 2022 Web Frontend Intern Homework.pdf](https://drive.google.com/file/d/1niPucGwf9qGEpLokVptK2a1zNeReS8WL/view)
+
 <img src="https://github.com/5j54d93/Dcard-2022-Web-Frontend-Intern-Homework/blob/main/.github/Asset/Demo.gif" width='100%' height='100%'/>
-
-- Dcard 2022 Web Frontend Intern Homework：[Doc.pdf](https://drive.google.com/file/d/1niPucGwf9qGEpLokVptK2a1zNeReS8WL/view)
-
-<a href="https://drive.google.com/file/d/1niPucGwf9qGEpLokVptK2a1zNeReS8WL/view" target="_blank">Doc.pdf</a>
 
 ## Overview
 
