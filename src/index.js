@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 import Navbar from './Navbar';
-import Search from './Search';
+import Home from './Home';
 import UserPage from './UserPage';
 import RepoDetail from './RepoDetail';
 import Footer from './Footer';
@@ -14,7 +14,7 @@ ReactDOM.render(
       <Navbar />
       <BrowserRouter>
         <Routes>
-          <Route path='/' element={<Search />} />
+          <Route path='/' element={<Home />} />
           <Route path='/users/:owner/repos' element={<UserPage />} />
           <Route path='/users/:owner/repos/:repo' element={<RepoDetail />} />
         </Routes>
