@@ -99,6 +99,7 @@ ReactDOM.render(
 - first check if what user search had already saved in `sessionStorage`
   - if yes：get data from `sessionStorage`
   - else：fetch data from API call [`GET /users/{username}`](https://docs.github.com/en/rest/reference/users#get-a-user)
+    - when fetch data from API, also save it in `sessionStorage`
 
 ```jsx
 const userData =
@@ -120,9 +121,11 @@ const userData =
 }
 ```
 
+<img src="https://github.com/5j54d93/Dcard-2022-Web-Frontend-Intern-Homework/blob/main/.github/Asset/No-Such-User.png" width='50%' height='100%'/><img src="https://github.com/5j54d93/Dcard-2022-Web-Frontend-Intern-Homework/blob/main/.github/Asset/Haven't-created-any-repo-yet.png" width='50%' height='100%'/>
+
 1. [**`GitHubUser()`**](https://github.com/5j54d93/Dcard-2022-Web-Frontend-Intern-Homework/blob/8786c282a180f0b13a866f35e7f4aa9ca353799a/src/UserPage.js#L85-L109)
-   - if username isn't exit：show「Search another User」button, that click will go back to search page
-   - else：show「follow」button
+   - if username isn't exit：show「Search another User」button, which onClick will go back to [`Home`](https://github.com/5j54d93/Dcard-2022-Web-Frontend-Intern-Homework/blob/main/src/Home.js)
+   - else：show [`FollowButton`](https://github.com/5j54d93/Dcard-2022-Web-Frontend-Intern-Homework/blob/main/src/Components/FollowButton.js)
 
 ```jsx
 {props.userData.message === 'Not Found'
@@ -143,18 +146,30 @@ if (
 )
 ```
 
+3. [**`RepoRow()`**](https://github.com/5j54d93/Dcard-2022-Web-Frontend-Intern-Homework/blob/327e93da2d5445899d59f10c4d4809b4e11beddd/src/UserPage.js#L141-L157)
+   - use `memo` to prevent re-render the whole `RepoList()` while fetch the next 10 repos
+   - which means only render the next 10 new repo！
+
+<img src="https://github.com/5j54d93/Dcard-2022-Web-Frontend-Intern-Homework/blob/main/.github/Asset/Prevent-Rerender-RepoRow.gif" width='100%' height='100%'/>
+
+4. [**`Progress()`**](https://github.com/5j54d93/Dcard-2022-Web-Frontend-Intern-Homework/blob/327e93da2d5445899d59f10c4d4809b4e11beddd/src/UserPage.js#L159-L171)
+   - show「ProgressView」or「No more repository」depends on wether there's more repo to load
+
 <img src="https://github.com/5j54d93/Dcard-2022-Web-Frontend-Intern-Homework/blob/main/.github/Asset/UserPage.png" width='100%' height='100%'/>
 
 ### [RepoDetail.js](https://github.com/5j54d93/Dcard-2022-Web-Frontend-Intern-Homework/blob/main/src/RepoDetail.js)：display repository details
-- fetch data from API call：[`GET /repos/{owner}/{repo}`](https://docs.github.com/en/rest/reference/repos#get-a-repository)
-  - `.name`：repo title
-  - `.description`：repo description
-  - `.stargazers_count`：repo stars count
-  - `.forks_count`：repo forks count
-  - `.language`：repo language
-  - `.html_url`：external link to GitHub repository page
 
-<img src="https://github.com/5j54d93/Dcard-2022-Web-Frontend-Intern-Homework/blob/main/.github/Asset/RepoDetail.png" width='100%' height='100%'/>
+- fetch data from API call：[`GET /repos/{owner}/{repo}`](https://docs.github.com/en/rest/reference/repos#get-a-repository)
+  - `.owner.avatar_url`：owner's avatar url
+  - `.owner.login`：owner's username
+  - `.full_name`：repo title
+  - `.created_at`：the time when the repo been created
+  - `.description`：repo description
+  - `.topics`：array of repo's topics
+  - `.stargazers_count`：repo's stars count
+  - `.forks_count`：repo's forks count
+  - `.language`：repo's language
+  - `.html_url`：external link to GitHub repository page
 
 ## Learn More
 
