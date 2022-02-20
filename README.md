@@ -2,7 +2,7 @@
 
 ---
 
-_**！！！Add badge here！！！**_
+ _**！！！Add badge here！！！**_
 
 ---
 
@@ -23,22 +23,14 @@ A [**React**](https://reactjs.org) app designed with [Bootstrap](https://github.
    - [On GitHub Page](https://github.com/5j54d93/Dcard-2022-Web-Frontend-Intern-Homework#on-github-page)
    - [On Your Computer](https://github.com/5j54d93/Dcard-2022-Web-Frontend-Intern-Homework#on-your-computer)
 2. [**Architecture Design**](https://github.com/5j54d93/Dcard-2022-Web-Frontend-Intern-Homework#architecture-design)
-   - [index.js](https://github.com/5j54d93/Dcard-2022-Web-Frontend-Intern-Homework#indexjsfor-direct-route)：for direct route
-   - [App.js](https://github.com/5j54d93/Dcard-2022-Web-Frontend-Intern-Homework#appjsfor-search-a-github-users-repositories)：for search a GitHub user's repositories
-   - [RepoList.js](https://github.com/5j54d93/Dcard-2022-Web-Frontend-Intern-Homework#repolistjslist-all-the-github-users-repositories)：list all the GitHub user's repositories
-   - [RepoDetail.js](https://github.com/5j54d93/Dcard-2022-Web-Frontend-Intern-Homework#repodetailjsdisplay-repository-details)：display repository detail
 3. [**Learn More**](https://github.com/5j54d93/Dcard-2022-Web-Frontend-Intern-Homework#learn-more)
-   - [Rate Limit](https://github.com/5j54d93/Dcard-2022-Web-Frontend-Intern-Homework#rate-limit)
-   - [Responsive Web Design](https://github.com/5j54d93/Dcard-2022-Web-Frontend-Intern-Homework#responsive-web-design)
-   - [Lighthouse：PageSpeed Insights](https://github.com/5j54d93/Dcard-2022-Web-Frontend-Intern-Homework#lighthousepagespeed-insights)
-   - [Dcard Favicon！～](https://github.com/5j54d93/Dcard-2022-Web-Frontend-Intern-Homework#-dcard-favicon)
 4. [**LICENSE**](https://github.com/5j54d93/Dcard-2022-Web-Frontend-Intern-Homework#license)
 
 ## How To Use
 
 ### On GitHub Page
 
-🎊 This React app have deployed on GitHub page, so you could try it on [**5j54d93.github.io/Dcard-2022-Web-Frontend-Intern-Homework**](https://5j54d93.github.io/Dcard-2022-Web-Frontend-Intern-Homework)！
+🎊 This React app had deployed on GitHub page, so you could try it on [**5j54d93.github.io/Dcard-2022-Web-Frontend-Intern-Homework**](https://5j54d93.github.io/Dcard-2022-Web-Frontend-Intern-Homework)！
 
 ### On Your Computer
 
@@ -54,7 +46,6 @@ git clone https://github.com/5j54d93/Dcard-2022-Web-Frontend-Intern-Homework
 
 ```shell
 cd Dcard-2022-Web-Frontend-Intern-Homework
-clear
 ```
 
 3. Run this React app
@@ -70,19 +61,19 @@ npm start
 
 ### [index.js](https://github.com/5j54d93/Dcard-2022-Web-Frontend-Intern-Homework/blob/main/src/index.js)：for direct route
 
-- every page will have [Navbar](https://github.com/5j54d93/Dcard-2022-Web-Frontend-Intern-Homework/blob/main/src/Navbar.js) and [Footer](https://github.com/5j54d93/Dcard-2022-Web-Frontend-Intern-Homework/blob/main/src/Footer.js), only change content on different route
-- default at [App](https://github.com/5j54d93/Dcard-2022-Web-Frontend-Intern-Homework/blob/main/src/App.js)
+- every page will have [Navbar](https://github.com/5j54d93/Dcard-2022-Web-Frontend-Intern-Homework/blob/main/src/Navbar.js) and [Footer](https://github.com/5j54d93/Dcard-2022-Web-Frontend-Intern-Homework/blob/main/src/Footer.js)
+- default at [Search](https://github.com/5j54d93/Dcard-2022-Web-Frontend-Intern-Homework/blob/main/src/Search.js)
 
 ```jsx
 ReactDOM.render(
   <React.StrictMode>
-    <div class="d-flex flex-column min-vh-100">
+    <div className='d-flex flex-column min-vh-100'>
       <Navbar />
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<App />} />
-          <Route path="/users/:owner/repos" element={<RepoList />} />
-          <Route path="/users/:owner/repos/:repo" element={<RepoDetail />} />
+          <Route path='/' element={<Search />} />
+          <Route path='/users/:owner/repos' element={<UserPage />} />
+          <Route path='/users/:owner/repos/:repo' element={<RepoDetail />} />
         </Routes>
       </BrowserRouter>
       <Footer />
@@ -92,12 +83,17 @@ ReactDOM.render(
 );
 ```
 
-### [App.js](https://github.com/5j54d93/Dcard-2022-Web-Frontend-Intern-Homework/blob/main/src/App.js)：for search a GitHub user's repositories
+### [Search.js](https://github.com/5j54d93/Dcard-2022-Web-Frontend-Intern-Homework/blob/main/src/Search.js)：for search a GitHub user ＆ list all following users
 
-- a form for user to input a GitHub username
-- can't submit if there's no input
+1. **Search Bar**
+   - a form for user to input a GitHub username
+   - can't search if there's no input
+2. **Following Users**
+   - list all following users
+   - data from `localStorage`
+   - use [`memo`](https://github.com/5j54d93/Dcard-2022-Web-Frontend-Intern-Homework/blob/336b48f299b00c9c4862664f214ac38942f0c8fb/src/Search.js#L50) to prevent re-render while input username
 
-<img src="https://github.com/5j54d93/Dcard-2022-Web-Frontend-Intern-Homework/blob/main/.github/Asset/App.png" width='100%' height='100%'/>
+<img src="https://github.com/5j54d93/Dcard-2022-Web-Frontend-Intern-Homework/blob/main/.github/Asset/Search.png" width='100%' height='100%'/>
 
 ### [RepoList.js](https://github.com/5j54d93/Dcard-2022-Web-Frontend-Intern-Homework/blob/main/src/RepoList.js)：list all the GitHub user's repositories
 
