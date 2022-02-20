@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useParams } from 'react-router-dom';
 
-import CreateTime from './CreateTime';
-import IconGroup from './IconGroup';
+import CreateTime from './Components/CreateTime';
+import IconGroup from './Components/IconGroup';
 
 // API call
 function FetchRepoData(owner, repo) {
@@ -68,7 +68,7 @@ function RepoOwner(props) {
           <path fillRule='evenodd' d='M2.146 2.146a.5.5 0 0 0 0 .708l11 11a.5.5 0 0 0 .708-.708l-11-11a.5.5 0 0 0-.708 0Z' />
         </svg>
       </Link>
-    </div>
+    </div >
   );
 }
 
