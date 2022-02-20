@@ -17,7 +17,7 @@ export default function Home() {
 function Search() {
   const [username, setUsername] = useState('');
   const [url, setUrl] = useState('');
-  console.log('render search');
+  
   const onChangeHandler = (event) => {
     setUsername(event.target.value);
     setUrl('/Dcard-2022-Web-Frontend-Intern-Homework/users/' + event.target.value + '/repos');
@@ -54,7 +54,6 @@ function Search() {
 }
 
 function FowllowingUser() {
-  console.log('render FowllowingUser');
   return (
     <div className='followingUsersContainer px-5 py-4 mt-4'>
       <div className='h3'>Fowllowing Users</div>
