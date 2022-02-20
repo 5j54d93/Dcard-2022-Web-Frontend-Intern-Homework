@@ -35,6 +35,9 @@ a:hover {
 }
 
 /* Search */
+.searchContainer {
+  max-width: 760px;
+}
 input[type], input[type]:focus, input[type]::placeholder {
   color: rgb(197,214,226);
   background: rgb(4,88,138);
@@ -44,8 +47,12 @@ input[type], input[type]:focus, input[type]::placeholder {
   background-color: rgb(0, 106, 166);
   border-color: rgb(0, 106, 166);
 }
+.followingUsersContainer {
+  background-color: rgb(242,243,244);
+  border-radius: 12px;
+}
 
-/* RepoList */
+/* UserPage */
 .backContainer {
   background-color: rgb(98,169,205);
   max-width: 760px;
@@ -57,7 +64,7 @@ input[type], input[type]:focus, input[type]::placeholder {
   margin-top: 200px;
   border-radius: 0px 0px 12px 12px;
 }
-.repoListContent {
+.userPageContent {
   position: relative;
   top: -6.8rem;
 }
@@ -69,11 +76,18 @@ input[type], input[type]:focus, input[type]::placeholder {
   display: block;
   border-radius: 8px;
   padding: 5px 15px;
+  color: white;
   background-color: rgb(51,151,207);
 }
 .btn-light-blue:hover {
   color: white;
   background-color: rgb(90, 176, 219);
+}
+.btn-light-gray {
+  display: block;
+  border-radius: 8px;
+  padding: 5px 15px;
+  background-color: rgb(228,230,232);
 }
 .starIcon {
   color: rgb(234,197,79);
