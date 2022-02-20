@@ -171,6 +171,21 @@ if (
   - `.language`：repo's language
   - `.html_url`：external link to GitHub repository page
 
+<img src="https://github.com/5j54d93/Dcard-2022-Web-Frontend-Intern-Homework/blob/main/.github/Asset/RepoDetail.png" width='100%' height='100%'/>
+
+### [Components](https://github.com/5j54d93/Dcard-2022-Web-Frontend-Intern-Homework/tree/main/src/Components)
+
+- [**`CreateTime.js`**](https://github.com/5j54d93/Dcard-2022-Web-Frontend-Intern-Homework/blob/main/src/Components/CreateTime.js)
+  - use `memo` to prevent re-render
+  - use `props.displayTime` to dispaly
+    - day month year on [`RepoRow`](https://github.com/5j54d93/Dcard-2022-Web-Frontend-Intern-Homework/blob/327e93da2d5445899d59f10c4d4809b4e11beddd/src/UserPage.js#L141-L157)
+    - day month year time on [`RepoDetail`](https://github.com/5j54d93/Dcard-2022-Web-Frontend-Intern-Homework/blob/main/src/RepoDetail.js)
+- [**`IconGroup.js`**](https://github.com/5j54d93/Dcard-2022-Web-Frontend-Intern-Homework/blob/main/src/Components/IconGroup.js)
+  - use `memo` to prevent re-render
+- [**`FollowButton.js`**](https://github.com/5j54d93/Dcard-2022-Web-Frontend-Intern-Homework/blob/main/src/Components/FollowButton.js)
+  - check wether username is saved in [`localStorage`](https://github.com/5j54d93/Dcard-2022-Web-Frontend-Intern-Homework/blob/2d24cf9a754c6076e46cb27ea9c89e3bf14f4a18/src/Components/FollowButton.js#L6) or not, to return Following or Follow
+  - save or delete user data in `localStorage` while button [onClick](https://github.com/5j54d93/Dcard-2022-Web-Frontend-Intern-Homework/blob/2d24cf9a754c6076e46cb27ea9c89e3bf14f4a18/src/Components/FollowButton.js#L17)
+
 ## Learn More
 
 ### Rate Limit
