@@ -3,7 +3,7 @@ export default function Navbar() {
     <div className='sticky-top middle-blue'>
       <nav className='container navbar navbar-dark flex-nowrap'>
         <div className='container-fluid'>
-          <a className='navbar-brand text-wrap' href='/Dcard-2022-Web-Frontend-Intern-Homework'>
+          <a className='navbar-brand text-wrap' href='/'>
             <b>Dcard 2022 Web Frontend Intern Homework</b>
           </a>
           <a className='btn btn-outline-dark' href='https://github.com/5j54d93/Dcard-2022-Web-Frontend-Intern-Homework' role='button' aria-label='link to GitHub Repository' target='_blank' rel='noreferrer'>
