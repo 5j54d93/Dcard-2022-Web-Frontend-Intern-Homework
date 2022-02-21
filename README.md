@@ -6,12 +6,12 @@
 
 ---
 
-A [**React**](https://reactjs.org) app designed with [Bootstrap](https://github.com/twbs/bootstrap) like [**Dcard**](https://www.dcard.tw) that could：
+A [**React**](https://reactjs.org) app designed like [**Dcard**](https://www.dcard.tw) with [Bootstrap](https://github.com/twbs/bootstrap) that could：
 
 - search users/organizations on [GitHub](https://github.com)
-- list a [GitHub](https://github.com) user's/organization's all repositories from [**GitHub REST API**](https://docs.github.com/en/rest)
-- read repository's detail from [**GitHub REST API**](https://docs.github.com/en/rest)
-- follow or unfollow a user/organize
+- list user's/organization's all repositories with `Infinite Scroll` from [**GitHub REST API**](https://docs.github.com/en/rest)
+- read repository's detail also from [**GitHub REST API**](https://docs.github.com/en/rest)
+- follow or unfollow a user/organize（in `localStorage`）
 
 > [Dcard 2022 Web Frontend Intern Homework.pdf](https://drive.google.com/file/d/1niPucGwf9qGEpLokVptK2a1zNeReS8WL/view)
 
@@ -173,24 +173,26 @@ if (
 
 <img src="https://github.com/5j54d93/Dcard-2022-Web-Frontend-Intern-Homework/blob/main/.github/Asset/RepoDetail.png" width='100%' height='100%'/>
 
-### [Components](https://github.com/5j54d93/Dcard-2022-Web-Frontend-Intern-Homework/tree/main/src/Components)
+### [Components/](https://github.com/5j54d93/Dcard-2022-Web-Frontend-Intern-Homework/tree/main/src/Components)：used not only on one page
 
 - [**`CreateTime.js`**](https://github.com/5j54d93/Dcard-2022-Web-Frontend-Intern-Homework/blob/main/src/Components/CreateTime.js)
   - use `memo` to prevent re-render
-  - use `props.displayTime` to dispaly
+  - reusable：use `props.displayTime` to display
     - day month year on [`RepoRow`](https://github.com/5j54d93/Dcard-2022-Web-Frontend-Intern-Homework/blob/327e93da2d5445899d59f10c4d4809b4e11beddd/src/UserPage.js#L141-L157)
     - day month year time on [`RepoDetail`](https://github.com/5j54d93/Dcard-2022-Web-Frontend-Intern-Homework/blob/main/src/RepoDetail.js)
 - [**`IconGroup.js`**](https://github.com/5j54d93/Dcard-2022-Web-Frontend-Intern-Homework/blob/main/src/Components/IconGroup.js)
   - use `memo` to prevent re-render
 - [**`FollowButton.js`**](https://github.com/5j54d93/Dcard-2022-Web-Frontend-Intern-Homework/blob/main/src/Components/FollowButton.js)
-  - check wether username is saved in [`localStorage`](https://github.com/5j54d93/Dcard-2022-Web-Frontend-Intern-Homework/blob/2d24cf9a754c6076e46cb27ea9c89e3bf14f4a18/src/Components/FollowButton.js#L6) or not, to return Following or Follow
-  - save or delete user data in `localStorage` while button [onClick](https://github.com/5j54d93/Dcard-2022-Web-Frontend-Intern-Homework/blob/2d24cf9a754c6076e46cb27ea9c89e3bf14f4a18/src/Components/FollowButton.js#L17)
+  - return Following or Follow depends on wether the username is saved in [`localStorage`](https://github.com/5j54d93/Dcard-2022-Web-Frontend-Intern-Homework/blob/2d24cf9a754c6076e46cb27ea9c89e3bf14f4a18/src/Components/FollowButton.js#L6)
+  - save or delete user data in `localStorage` while the button [onClick](https://github.com/5j54d93/Dcard-2022-Web-Frontend-Intern-Homework/blob/2d24cf9a754c6076e46cb27ea9c89e3bf14f4a18/src/Components/FollowButton.js#L17)
 
 ## Learn More
 
 ### Rate Limit
 
 If [5j54d93.github.io/Dcard-2022-Web-Frontend-Intern-Homework](https://5j54d93.github.io/Dcard-2022-Web-Frontend-Intern-Homework) or this React app that run on your computer didn't work well, you may exceed GitHub Rest API Rate Limit which is up to 60 requests per hour. For more information, [view this official doc](https://docs.github.com/en/rest/overview/resources-in-the-rest-api#rate-limiting).
+
+### Better User Experience on small Devices
 
 ### Responsive Web Design
 
@@ -213,6 +215,8 @@ Performance score got orange（50-89）because of using Bootstrap which cost 0.1
 #### [RepoDetail](https://github.com/5j54d93/Dcard-2022-Web-Frontend-Intern-Homework/blob/main/src/RepoDetail.js) on mobile
 
 <img src="https://github.com/5j54d93/Dcard-2022-Web-Frontend-Intern-Homework/blob/main/.github/Asset/Lighthouse：RepoDetail.png" width='100%' height='100%'/>
+
+### Use Console like Dcard
 
 ### 🥰 Dcard Favicon！～
 
