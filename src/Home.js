@@ -17,7 +17,7 @@ export default function Home() {
 function Search() {
   const [username, setUsername] = useState('');
   const [url, setUrl] = useState('');
-  
+
   const onChangeHandler = (event) => {
     setUsername(event.target.value);
     setUrl('/Dcard-2022-Web-Frontend-Intern-Homework/users/' + event.target.value + '/repos');
@@ -55,7 +55,7 @@ function Search() {
 
 function FowllowingUser() {
   return (
-    <div className='followingUsersContainer px-5 py-4 mt-4'>
+    <div className='followingUsersContainer mt-4'>
       <div className='h3'>Fowllowing Users</div>
       <hr />
       {localStorage.followingData && JSON.parse(localStorage.getItem('followingData')).length > 0
@@ -69,7 +69,7 @@ function FowllowingUser() {
                 <span className='text-light-gray'>@{followUser.username}</span>
               </div>
             </Link>
-            <div className="align-self-center">
+            <div className="align-self-center hideOnSmallScreen">
               <FollowButton avatarUrl={followUser.avatarUrl} name={followUser.name} username={followUser.username} />
             </div>
           </div>
