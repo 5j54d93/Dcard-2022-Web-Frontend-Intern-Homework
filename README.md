@@ -96,6 +96,7 @@ ReactDOM.render(
 
 ### [UserPage.js](https://github.com/5j54d93/Dcard-2022-Web-Frontend-Intern-Homework/blob/main/src/UserPage.js)：show the GitHub user's info ＆ list all repositories
 
+- `route` at [`/users/{username}/repos`](https://github.com/5j54d93/Dcard-2022-Web-Frontend-Intern-Homework/blob/2c216529e3b8e7bbbb6ea4944dc0a982e63f99e0/src/index.js#L18)
 - first check if what user search had already saved in `sessionStorage`
   - if yes：get data from `sessionStorage`
   - else：fetch data from API call [`GET /users/{username}`](https://docs.github.com/en/rest/reference/users#get-a-user)
@@ -159,6 +160,7 @@ if (
 
 ### [RepoDetail.js](https://github.com/5j54d93/Dcard-2022-Web-Frontend-Intern-Homework/blob/main/src/RepoDetail.js)：display repository details
 
+- `route` at [`/users/{username}/repos/{repo}`](https://github.com/5j54d93/Dcard-2022-Web-Frontend-Intern-Homework/blob/2c216529e3b8e7bbbb6ea4944dc0a982e63f99e0/src/index.js#L19)
 - fetch data from API call：[`GET /repos/{owner}/{repo}`](https://docs.github.com/en/rest/reference/repos#get-a-repository)
   - `.owner.avatar_url`：owner's avatar url
   - `.owner.login`：owner's username
