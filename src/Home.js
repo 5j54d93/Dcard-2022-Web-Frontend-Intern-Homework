@@ -20,7 +20,7 @@ function Search() {
 
   const onChangeHandler = (event) => {
     setUsername(event.target.value);
-    setUrl('/Dcard-2022-Web-Frontend-Intern-Homework/users/' + event.target.value + '/repos');
+    setUrl('/users/' + event.target.value + '/repos');
   }
 
   const onSubmitHandler = () => {
