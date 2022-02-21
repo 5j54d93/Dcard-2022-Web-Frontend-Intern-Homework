@@ -33,8 +33,16 @@ a:hover {
   background-color: rgb(51, 151, 207);
   border-color: rgb(51,151,207);
 }
+.navbar-brand {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+          line-clamp: 2; 
+  -webkit-box-orient: vertical;
+}
 
-/* Search */
+/* HOME */
 .searchContainer {
   max-width: 760px;
 }
@@ -50,6 +58,12 @@ input[type], input[type]:focus, input[type]::placeholder {
 .followingUsersContainer {
   background-color: rgb(242,243,244);
   border-radius: 12px;
+  padding: 1.5rem 3rem;
+}
+@media (max-width: 760px) {                  
+  .followingUsersContainer {
+    padding: 1.5rem 1rem 0.5rem; /* top horizontal bottom*/
+  }
 }
 
 /* UserPage */
@@ -62,7 +76,13 @@ input[type], input[type]:focus, input[type]::placeholder {
 .frontContainer {
   background-color: rgb(242,243,244);
   margin-top: 200px;
+  padding: 0 3rem;
   border-radius: 0px 0px 12px 12px;
+}
+@media (max-width: 760px) {                  
+  .frontContainer {
+    padding: 0 1rem;
+  }
 }
 .userPageContent {
   position: relative;
@@ -104,6 +124,12 @@ input[type], input[type]:focus, input[type]::placeholder {
   background-color: white;
   max-width: 760px;
   border-radius: 12px;
+  padding: 3rem;
+}
+@media (max-width: 760px) {                  
+  .repoDetailContainer {
+    padding: 1rem;
+  }
 }
 .topic {
   display: block;
