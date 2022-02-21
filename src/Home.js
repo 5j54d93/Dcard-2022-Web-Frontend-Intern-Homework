@@ -69,7 +69,7 @@ function FowllowingUser() {
                 <span className='text-light-gray'>@{followUser.username}</span>
               </div>
             </Link>
-            <div className="align-self-center hideOnSmallScreen">
+            <div className="align-self-center">
               <FollowButton avatarUrl={followUser.avatarUrl} name={followUser.name} username={followUser.username} />
             </div>
           </div>
