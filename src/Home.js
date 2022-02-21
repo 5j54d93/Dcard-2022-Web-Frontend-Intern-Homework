@@ -74,7 +74,7 @@ function FowllowingUser() {
             </div>
           </div>
         ))
-        : <div>Explore users you like and follow his/her！</div>
+        : <div className='mb-2'>Explore users you like and follow his/her！</div>
       }
     </div>
   );
