@@ -32,7 +32,7 @@ export default function RepoDetail() {
   if (repoData) {
     return (
       <div className='d-flex flex-fill align-items-center'>
-        <main className='container my-4 p-5 repoDetailContainer'>
+        <main className='container my-4 repoDetailContainer'>
           <RepoOwner owner={repoData.owner} />
           <h1 className='text-dark fs-2 mb-3'>{repoData.full_name}</h1>
           <Link to={'/users/' + owner + '/repos'} style={{ color: 'rgb(51, 151, 207)' }}>Repo List</Link>
