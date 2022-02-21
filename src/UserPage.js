@@ -64,7 +64,7 @@ export default function UserPage() {
   return (
     <div className='d-flex flex-fill align-items-center'>
       <div className='container my-4 backContainer'>
-        <div className='px-5 frontContainer'>
+        <div className='frontContainer'>
           <main className='userPageContent'>
             <GitHubUser username={userData.login} userData={userData} />
             <div className='container repoRowContainer p-4 mt-2'>
