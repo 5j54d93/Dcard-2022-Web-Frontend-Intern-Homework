@@ -12,13 +12,7 @@ function useFetchRepoData(owner, repo) {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const url = 'https://api.github.com/repos/' + owner + '/' + repo
-        const response = await fetch(url, {
-          method: 'GET',
-          headers: {
-            Authorization: 'token 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'
-          }
-        });
+        const response = await fetch('https://api.github.com/repos/' + owner + '/' + repo);
         const json = await response.json();
         setData(json);
       } catch (error) {
