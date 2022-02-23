@@ -4,32 +4,27 @@ export default function FollowButton(props) {
   const [following, setFollowing] = useState(false);
 
   useEffect(() => {
-    if (localStorage.followingData !== '[]') {
-      var followingData = JSON.parse(localStorage.getItem('followingData'));
-      for (let i = 0; i < followingData.length; i++) {
-        if (followingData[i].username === props.username) {
+    if (localStorage.followingUsers !== '[]') {
+      var followingUsers = JSON.parse(localStorage.getItem('followingUsers'));
+      for (let i = 0; i < followingUsers.length; i++) {
+        if (followingUsers[i].login === props.userData.login) {
           setFollowing(true);
         }
       }
     }
-  }, [props.username])
+  }, [props.userData.login])
 
-  function handleOnClick() {
+  function handleClick() {
     if (following) {
-      let followingData = JSON.parse(localStorage.getItem('followingData'));
-      followingData.forEach((data, index) => {
-        if (data.username === props.username) {
-          followingData.splice(index, 1);
-          localStorage.setItem("followingData", JSON.stringify(followingData));
+      let followingUsers = JSON.parse(localStorage.getItem('followingUsers'));
+      followingUsers.forEach((followingUser, index) => {
+        if (followingUser.login === props.userData.login) {
+          followingUsers.splice(index, 1);
+          localStorage.setItem('followingUsers', JSON.stringify(followingUsers));
         };
       })
     } else {
-      const userdata = {
-        'avatarUrl': props.avatarUrl,
-        'name': props.name,
-        'username': props.username
-      }
-      localStorage.setItem('followingData', JSON.stringify(JSON.parse(localStorage.getItem('followingData')).concat([userdata])));
+      localStorage.setItem('followingUsers', JSON.stringify(JSON.parse(localStorage.getItem('followingUsers')).concat([props.userData])));
     }
 
     setFollowing(!following);
@@ -37,7 +32,7 @@ export default function FollowButton(props) {
 
   return (
     following
-      ? <div className='btn-light-gray' onClick={handleOnClick} role='button'>Following</div>
-      : <div className='btn-light-blue' onClick={handleOnClick} role='button'>Follow</div>
+      ? <div className='btn-light-gray' onClick={handleClick} role='button'>Following</div>
+      : <div className='btn-light-blue' onClick={handleClick} role='button'>Follow</div>
   );
 }
