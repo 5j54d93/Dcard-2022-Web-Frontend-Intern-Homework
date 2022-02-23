@@ -95,7 +95,7 @@ function FetchRepos(username, page) {
       try {
         const response = await fetch('https://api.github.com/users/' + username + '/repos?sort=created&per_page=10&page=' + page);
         const json = await response.json();
-        setRepos((repos) => [...repos, ...json]);
+        setRepos([...repos, ...json]);
       } catch (error) {
         console.log(error.message);
       }
