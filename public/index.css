@@ -14,6 +14,9 @@ a:hover {
 .text-middle-blue {
   color: rgb(0, 106, 166);
 }
+.text-light-blue {
+  color: rgb(51, 151, 207);
+}
 .text-light-white {
   color: rgb(185,196,205);
 }
@@ -43,7 +46,7 @@ a:hover {
 }
 
 /* HOME */
-.searchContainer {
+.homeContainer {
   max-width: 760px;
 }
 input[type], input[type]:focus, input[type]::placeholder {
@@ -62,7 +65,7 @@ input[type], input[type]:focus, input[type]::placeholder {
 }
 @media (max-width: 760px) {                  
   .followingUsersContainer {
-    padding: 1.5rem 1rem 0.5rem; /* top horizontal bottom*/
+    padding: 1.5rem 1rem; /* top horizontal bottom*/
   }
 }
 
@@ -140,4 +143,10 @@ input[type], input[type]:focus, input[type]::placeholder {
 }
 .topic:hover {
   color: rgb(60, 60, 60);
+}
+.viewOnGitHub {
+  color: rgb(204,204,204);
+}
+.viewOnGitHub:hover {
+  color: black;
 }
