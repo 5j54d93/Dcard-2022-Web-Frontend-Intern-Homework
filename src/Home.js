@@ -32,13 +32,7 @@ function SearchBar() {
     event.preventDefault();
     if (JSON.parse(sessionStorage.getItem('GitHubUser')).login.toUpperCase() !== inputRef.current.value.toUpperCase()) {
       async function fetchData() {
-        let url = 'https://api.github.com/users/' + inputRef.current.value;
-        const response = await fetch(url, {
-          method: 'GET',
-          headers: {
-            Authorization: 'token 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'
-          }
-        });
+        const response = await fetch('https://api.github.com/users/' + inputRef.current.value);
         const json = await response.json();
         if (json.message === 'Not Found') {
           json.login = inputRef.current.value;
