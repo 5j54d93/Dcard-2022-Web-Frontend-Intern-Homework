@@ -93,13 +93,7 @@ function FetchRepos(username, page) {
   useEffect(() => {
     const fetchRepos = async () => {
       try {
-        const url = 'https://api.github.com/users/' + username + '/repos?sort=created&per_page=10&page=' + page;
-        const response = await fetch(url, {
-          method: 'GET',
-          headers: {
-            Authorization: 'token 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'
-          }
-        });
+        const response = await fetch('https://api.github.com/users/' + username + '/repos?sort=created&per_page=10&page=' + page);
         const json = await response.json();
         setRepos((repos) => [...repos, ...json]);
       } catch (error) {
