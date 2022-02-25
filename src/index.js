@@ -14,7 +14,7 @@ ReactDOM.render(
       <Navbar />
       <BrowserRouter>
         <Routes>
-          <Route path='/' element={<Home />} />
+          <Route index element={<Home />} />
           <Route path='/users/:owner/repos' element={<UserPage />} />
           <Route path='/users/:owner/repos/:repo' element={<RepoDetail />} />
         </Routes>
