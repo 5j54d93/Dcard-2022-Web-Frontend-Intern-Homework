@@ -1,0 +1,16 @@
+.bgMiddleBlue {
+  background-color: rgb(0, 106, 166);
+}
+
+.navbarHeight {
+  height: 48px;
+}
+
+.lineLimit {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+          line-clamp: 1; 
+  -webkit-box-orient: vertical;
+}
