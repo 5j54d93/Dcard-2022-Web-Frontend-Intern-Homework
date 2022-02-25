@@ -1,7 +1,7 @@
 {
   "short_name": "Dcard Frontend Intern Homework",
   "name": "Dcard 2022 Web Frontend Intern Homework created by Ricky Chuang.",
-  "description": "A React app design with Bootstrap like Dcard that could fetch data from GitHub REST API to list a GitHub user's all repositories！",
+  "description": "A React app design like Dcard with Bootstrap that could list a GitHub user's all repositories from REST API！",
   "lang": "en",
   "icons": [
     {
