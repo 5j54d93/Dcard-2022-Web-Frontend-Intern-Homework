@@ -39,7 +39,7 @@ A [**React**](https://reactjs.org) app designed like [**Dcard**](https://www.dca
 1. Download this repository
 
 ```shell
-git clone https://github.com/5j54d93/Dcard-2022-Web-Frontend-Intern-Homework
+git clone git@github.com:5j54d93/Dcard-2022-Web-Frontend-Intern-Homework.git --depth 1
 ```
 
 2. Change directories to this repository
