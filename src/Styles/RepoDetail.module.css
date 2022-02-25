@@ -1,0 +1,61 @@
+.repoDetail {
+  padding: 3rem;
+  max-width: 760px;
+  border-radius: 12px;
+  background-color: white;
+}
+@media (max-width: 760px) {                  
+  .repoDetail {
+    padding: 2rem 1.5rem;
+  }
+}
+
+.roundImage {
+  border-radius: 50%;
+}
+
+.name {
+  color: #000;
+}
+
+.username {
+  font-size: 0.8rem;
+  font-weight: 450;
+  color: rgb(122,121,122);
+}
+
+.x {
+  color: rgb(158,158,158);
+}
+.x:hover {
+  color: rgb(51, 151, 207);
+}
+
+.repoListLink, .repoListLink:hover {
+  font-size: 0.95rem;
+  color: rgb(51, 151, 207);
+}
+
+.creatAt {
+  font-size: 0.95rem;
+  color: rgb(158,158,158);
+}
+
+.topic, .topic:hover {
+  display: block;
+  padding: 5px 18px;
+  border-radius: 20px;
+  color: rgb(60, 60, 60);
+  background-color: rgb(239,239,239);
+}
+
+.iconGroup {
+  color: rgb(122,121,122);
+}
+
+.btnGitHub {
+  color: rgb(204,204,204);
+}
+.btnGitHub:hover {
+  color: black;
+}
