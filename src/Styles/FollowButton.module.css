@@ -1,0 +1,20 @@
+.btnFollow {
+  display: block;
+  border-radius: 8px;
+  padding: 5px 15px;
+  color: white;
+  background-color: rgb(51,151,207);
+  -webkit-touch-callout: none;
+    -webkit-user-select: none;
+            user-select: none;
+}
+
+.btnFollowing {
+  display: block;
+  border-radius: 8px;
+  padding: 5px 15px;
+  background-color: rgb(228,230,232);
+  -webkit-touch-callout: none;
+    -webkit-user-select: none;
+            user-select: none;
+}
