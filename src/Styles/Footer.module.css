@@ -1,0 +1,14 @@
+.footer {
+  padding-top: 0;
+  padding-bottom: 0;
+  margin-top: 0;
+  margin-bottom: 0;
+  max-width: 760px;
+  font-size: 0.85em;
+  color: #fff;
+}
+
+a, a:hover {
+  color: #fff;
+  text-decoration: none;
+}
