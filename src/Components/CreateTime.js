@@ -6,7 +6,7 @@ export default memo(function CreateTime(props) {
 
   return (
     props.displayTime
-      ? <>{createTime.getDate() + 1} {monthNames[createTime.getMonth()]} {createTime.getFullYear()} {('0' + createTime.getHours()).slice(-2)}: {('0' + createTime.getMinutes()).slice(-2)}</>
+      ? <>{createTime.getDate() + 1} {monthNames[createTime.getMonth()]} {createTime.getFullYear()}{'\u00A0'}{'\u00A0'}{('0' + createTime.getHours()).slice(-2)}：{('0' + createTime.getMinutes()).slice(-2)}</>
       : <>{createTime.getDate() + 1} {monthNames[createTime.getMonth()]} {createTime.getFullYear()}</>
   );
 })
