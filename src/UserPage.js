@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef, memo } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 
 import IconGroup from './Components/IconGroup';
 import CreateTime from './Components/CreateTime';
@@ -8,21 +8,108 @@ import FollowButton from './Components/FollowButton';
 import styles from './Styles/UserPage.module.css';
 
 export default function UserPage() {
-  const userData = JSON.parse(sessionStorage.getItem('GitHubUser'));
+  const { owner } = useParams();
+  const [userData, setUserData] = useState(JSON.parse(sessionStorage.getItem('GitHubUser')));
 
+  useEffect(() => {
+    if (!localStorage.FollowingUsers) {
+      localStorage.setItem('FollowingUsers', '[]');
+    }
+    if (!sessionStorage.GitHubUser) {
+      sessionStorage.setItem('GitHubUser', '{"login": ""}');
+    }
+    if (!sessionStorage.repoDetail) {
+      sessionStorage.setItem('repoDetail', '{}');
+    }
+    if (!sessionStorage.page) {
+      sessionStorage.setItem('page', 1);
+    }
+    if (!sessionStorage.offsetY) {
+      sessionStorage.setItem('offsetY', 0);
+    }
+  })
+
+  useEffect(() => {
+    if (!sessionStorage.GitHubUser || owner.toUpperCase() !== JSON.parse(sessionStorage.getItem('GitHubUser')).login.toUpperCase()) {
+      fetchGitHubUser();
+      async function fetchGitHubUser() {
+        const response = await fetch('https://api.github.com/users/' + owner);
+        const json = await response.json();
+        if (json.message === 'Not Found') {
+          json.login = owner;
+          json.name = 'No Such User';
+          json.followers = 0; json.following = 0;
+          json.avatar_url = 'https://pbs.twimg.com/profile_images/792371348114845697/YYKpi3s6_400x400.jpg';
+          sessionStorage.setItem('GitHubUser', JSON.stringify(json));
+          setUserData(JSON.parse(sessionStorage.getItem('GitHubUser')));
+        } else if (json.public_repos === 0) {
+          sessionStorage.setItem('GitHubUser', JSON.stringify(json));
+          setUserData(JSON.parse(sessionStorage.getItem('GitHubUser')));
+        } else {
+          sessionStorage.setItem('GitHubUser', JSON.stringify(json));
+          fetchRepos();
+        }
+      }
+      async function fetchRepos() {
+        const response = await fetch('https://api.github.com/users/' + owner + '/repos?sort=created&per_page=10&page=1');
+        const json = await response.json();
+        sessionStorage.setItem('Repos', JSON.stringify(json));
+        setUserData(JSON.parse(sessionStorage.getItem('GitHubUser')));
+      }
+    }
+  })
+
+  if (
+    sessionStorage.GitHubUser
+    &&
+    owner.toUpperCase() === JSON.parse(sessionStorage.getItem('GitHubUser')).login.toUpperCase()
+  ) {
+    return (
+      <div className='d-flex flex-fill align-items-center'>
+        <div className={`container ${styles.bgLightGrayContainer}`}>
+          <div className={styles.banner} />
+          <main className={styles.userPage}>
+            <GitHubUser />
+            <div className={`p-4 mt-2 ${styles.bgWhiteContainer}`}>
+              {userData.message !== undefined && userData.message === 'Not Found'
+                ? <div className={`fs-3 text-center ${styles.textMiddleBlue}`}>No Such User.</div>
+                : userData.public_repos === 0
+                  ? <div className={`fs-3 text-center ${styles.textMiddleBlue}`}>Haven't created any repository yet.</div>
+                  : <RepoList />
+              }
+            </div>
+          </main>
+        </div>
+      </div>
+    );
+  } else {
+    return (
+      <Loading />
+    );
+  }
+}
+
+function Loading() {
   return (
     <div className='d-flex flex-fill align-items-center'>
       <div className={`container ${styles.bgLightGrayContainer}`}>
         <div className={styles.banner} />
         <main className={styles.userPage}>
-          <GitHubUser />
+          <img className={`ms-2 mb-2 ${styles.avartar}`} src='https://pbs.twimg.com/profile_images/792371348114845697/YYKpi3s6_400x400.jpg' alt='loading' width='142px' height='142px' />
+          <header className='d-flex flex-wrap align-items-end ms-2'>
+            <div className='me-auto lh-1'>
+              <h1 className={styles.name}>Loading</h1>
+              <span className={`fw-light ${styles.userDetail}`}>
+                <h2 className={styles.username}>@loading</h2>
+                <span>0 repos · 0 followers</span>
+              </span>
+            </div>
+            <a className={`mt-2 ${styles.btnSearchAnotherUser}`} href='/Dcard-2022-Web-Frontend-Intern-Homework' role='button'>Loading</a>
+          </header>
+          <p className={styles.bio}>Loading...</p>
+          <hr />
           <div className={`p-4 mt-2 ${styles.bgWhiteContainer}`}>
-            {userData.message === 'Not Found'
-              ? <div className={`fs-3 text-center ${styles.textMiddleBlue}`}>No Such User.</div>
-              : userData.public_repos === 0
-                ? <div className={`fs-3 text-center ${styles.textMiddleBlue}`}>Haven't created any repository yet.</div>
-                : <RepoList />
-            }
+            <div className={`fs-3 text-center ${styles.textMiddleBlue}`}>Loading...</div>
           </div>
         </main>
       </div>
@@ -102,11 +189,21 @@ function RepoList() {
 
   useEffect(() => {
     window.scroll(0, sessionStorage.getItem('offsetY'));
+    if (!sessionStorage.Repos) {
+      fetchReposPageOne();
+      async function fetchReposPageOne() {
+        const response = await fetch('https://api.github.com/users/' + userData.login + '/repos?sort=created&per_page=10&page=1');
+        const json = await response.json();
+        sessionStorage.setItem('Repos', JSON.stringify(json));
+        sessionStorage.setItem('page', 1);
+        setPage(1);
+      }
+    }
     const observer = new IntersectionObserver((entries) => {
       if (entries[0].isIntersecting && 10 * page < userData.public_repos) {
         fetchRepos(page + 1);
       }
-    }, { root: null, rootMargin: '0px', threshold: 1.0 });
+    }, { root: null, rootMargin: '0px', threshold: 0 });
 
     if (progressRef.current) {
       observer.observe(progressRef.current);
@@ -116,23 +213,29 @@ function RepoList() {
     }
   })
 
-  return (
-    <>
-      {repoData.map((repo, index) => (
-        <RepoRow repo={repo} key={index} />
-      ))}
-      {10 * page < userData.public_repos
-        ?
-        <div className={`text-center ${styles.textMiddleBlue}`}>
-          <div className='spinner-border' role='status'>
-            <span className='visually-hidden' ref={progressRef}>Loading...</span>
+  if (sessionStorage.Repos && JSON.parse(sessionStorage.getItem('Repos')).length > 0) {
+    return (
+      <>
+        {repoData.map((repo, index) => (
+          <RepoRow repo={repo} key={index} />
+        ))}
+        {10 * page < userData.public_repos
+          ?
+          <div className={`text-center ${styles.textMiddleBlue}`}>
+            <div className='spinner-border' role='status'>
+              <span className='visually-hidden' ref={progressRef}>Loading...</span>
+            </div>
           </div>
-        </div>
-        :
-        <div className={`fs-5 text-center ${styles.textMiddleBlue}`}>No more repositories.</div>
-      }
-    </>
-  );
+          :
+          <div className={`fs-5 text-center ${styles.textMiddleBlue}`}>No more repositories.</div>
+        }
+      </>
+    );
+  } else {
+    return (
+      <div className={`fs-5 text-center ${styles.textMiddleBlue}`}>Loading...</div>
+    );
+  }
 }
 
 const RepoRow = memo(function RepoRow(props) {
