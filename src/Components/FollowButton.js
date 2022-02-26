@@ -6,7 +6,7 @@ export default function FollowButton(props) {
   const [following, setFollowing] = useState(false);
 
   useEffect(() => {
-    if (localStorage.followingUsers !== '[]') {
+    if (JSON.parse(localStorage.getItem('FollowingUsers')).length > 0) {
       const followingUsers = JSON.parse(localStorage.getItem('FollowingUsers'));
       followingUsers.forEach(followingUser => {
         if (followingUser.login === props.userData.login) {
