@@ -11,9 +11,6 @@ export default function Home() {
     if (!localStorage.FollowingUsers) {
       localStorage.setItem('FollowingUsers', '[]');
     }
-    if (!sessionStorage.GitHubUser) {
-      sessionStorage.setItem('GitHubUser', '{"login": ""}');
-    }
     if (!sessionStorage.repoDetail) {
       sessionStorage.setItem('repoDetail', '{}');
     }
@@ -46,9 +43,9 @@ function SearchBar() {
       json.followers = 0;
       json.avatar_url = 'https://pbs.twimg.com/profile_images/792371348114845697/YYKpi3s6_400x400.jpg';
       sessionStorage.setItem('GitHubUser', JSON.stringify(json));
-      navigate('/users/' + JSON.parse(sessionStorage.getItem('GitHubUser')).login + '/repos');
+      navigate('/users/' + inputRef.current.value + '/repos');
     } else if (json.public_repos === 0) {
-      navigate('/users/' + JSON.parse(sessionStorage.getItem('GitHubUser')).login + '/repos');
+      navigate('/users/' + json.login + '/repos');
     } else {
       fetchRepos(json.login);
     }
@@ -58,12 +55,12 @@ function SearchBar() {
     const response = await fetch('https://api.github.com/users/' + username + '/repos?sort=created&per_page=10&page=1');
     const json = await response.json();
     sessionStorage.setItem('Repos', JSON.stringify(json));
-    navigate('/users/' + JSON.parse(sessionStorage.getItem('GitHubUser')).login + '/repos');
+    navigate('/users/' + username + '/repos');
   }
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    if (JSON.parse(sessionStorage.getItem('GitHubUser')).login.toUpperCase() !== inputRef.current.value.toUpperCase()) {
+    if (!sessionStorage.GitHubUser || JSON.parse(sessionStorage.getItem('GitHubUser')).login.toUpperCase() !== inputRef.current.value.toUpperCase()) {
       fetchUser();
     } else {
       fetchRepos(JSON.parse(sessionStorage.getItem('GitHubUser')).login);
@@ -107,7 +104,7 @@ function FowllowingUserRow(props) {
     navigate('/users/' + props.followingUser.login + '/repos');
   }
 
-  function handleClick() {
+  const handleClick = () => {
     if (JSON.parse(sessionStorage.getItem('GitHubUser')).login !== props.followingUser.login) {
       sessionStorage.setItem('GitHubUser', JSON.stringify(props.followingUser));
       fetchRepos(props.followingUser.login);
@@ -118,7 +115,7 @@ function FowllowingUserRow(props) {
 
   return (
     <div className={`d-flex p-3 mt-2 ${styles.bgWhiteContainer}`}>
-      <div className={`d-flex flex-grow-1 align-items-center gap-2 ${styles.cursorPointer}`} onClick={() => handleClick()} >
+      <div className={`d-flex flex-grow-1 align-items-center gap-2 ${styles.cursorPointer}`} onClick={handleClick} >
         <img className={`img-fluid ${styles.roundImg}`} src={props.followingUser.avatar_url} alt={props.followingUser.name} width='32px' height='32px' />
         <div className='lh-1'>
           <span className='fw-bolder'>{props.followingUser.name}</span>
