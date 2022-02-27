@@ -6,14 +6,14 @@
 
 ---
 
+> [Dcard 2022 Web Frontend Intern Homework.pdf](https://drive.google.com/file/d/1niPucGwf9qGEpLokVptK2a1zNeReS8WL/view)
+
 A [**React**](https://reactjs.org) app designed like [**Dcard**](https://www.dcard.tw) with [Bootstrap](https://github.com/twbs/bootstrap) that could：
 
 - search users/organizations on [GitHub](https://github.com)
 - list user's/organization's all repositories with `Infinite Scroll` from [**GitHub REST API**](https://docs.github.com/en/rest)
-- read repository's detail also from [**GitHub REST API**](https://docs.github.com/en/rest)
-- follow or unfollow a user/organize（in `localStorage`）
-
-> [Dcard 2022 Web Frontend Intern Homework.pdf](https://drive.google.com/file/d/1niPucGwf9qGEpLokVptK2a1zNeReS8WL/view)
+- read repository's detail from [**GitHub REST API**](https://docs.github.com/en/rest)
+- follow or unfollow a user/organization which data store in `localStorage`
 
 <img src="https://github.com/5j54d93/Dcard-2022-Web-Frontend-Intern-Homework/blob/main/.github/Asset/Demo.gif" width='100%' height='100%'/>
 
