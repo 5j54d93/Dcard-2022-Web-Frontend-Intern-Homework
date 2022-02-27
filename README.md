@@ -30,7 +30,7 @@ A [**React**](https://reactjs.org) app designed like [**Dcard**](https://www.dca
 
 ### On GitHub Page
 
-🎊 This React app had deployed on GitHub page, so you could try it on [**5j54d93.github.io/Dcard-2022-Web-Frontend-Intern-Homework**](https://5j54d93.github.io/Dcard-2022-Web-Frontend-Intern-Homework)！
+🎊 This React app had deployed on GitHub page, you could try it on [**5j54d93.github.io/Dcard-2022-Web-Frontend-Intern-Homework**](https://5j54d93.github.io/Dcard-2022-Web-Frontend-Intern-Homework)！
 
 ### On Your Computer
 
