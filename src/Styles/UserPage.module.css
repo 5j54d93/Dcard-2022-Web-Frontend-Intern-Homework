@@ -116,12 +116,12 @@
 }
 
 .iconGroup {
-  font-size: 0.8rem;
   margin-top: 15px;
-  margin-bottom: 20px;
+  font-size: 0.8rem;
   color: rgb(158,158,158);
 }
 
 .hr {
+  margin-top: 20px;
   color: rgb(158,158,158);
 }
