@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/Dcard-2022-Web-Frontend-Intern-Homework/static/css/main.32f5c98e.css",
-    "main.js": "/Dcard-2022-Web-Frontend-Intern-Homework/static/js/main.b8ccd9f9.js",
+    "main.css": "/Dcard-2022-Web-Frontend-Intern-Homework/static/css/main.2a605561.css",
+    "main.js": "/Dcard-2022-Web-Frontend-Intern-Homework/static/js/main.21ac0755.js",
     "index.html": "/Dcard-2022-Web-Frontend-Intern-Homework/index.html",
-    "main.32f5c98e.css.map": "/Dcard-2022-Web-Frontend-Intern-Homework/static/css/main.32f5c98e.css.map",
-    "main.b8ccd9f9.js.map": "/Dcard-2022-Web-Frontend-Intern-Homework/static/js/main.b8ccd9f9.js.map"
+    "main.2a605561.css.map": "/Dcard-2022-Web-Frontend-Intern-Homework/static/css/main.2a605561.css.map",
+    "main.21ac0755.js.map": "/Dcard-2022-Web-Frontend-Intern-Homework/static/js/main.21ac0755.js.map"
   },
   "entrypoints": [
-    "static/css/main.32f5c98e.css",
-    "static/js/main.b8ccd9f9.js"
+    "static/css/main.2a605561.css",
+    "static/js/main.21ac0755.js"
   ]
 }
