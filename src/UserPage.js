@@ -21,16 +21,12 @@ export default function UserPage() {
     if (!sessionStorage.repoDetail) {
       sessionStorage.setItem('repoDetail', '{}');
     }
-    if (!sessionStorage.page) {
-      sessionStorage.setItem('page', 1);
-    }
-    if (!sessionStorage.offsetY) {
-      sessionStorage.setItem('offsetY', 0);
-    }
   })
 
   useEffect(() => {
     if (!sessionStorage.GitHubUser || owner.toUpperCase() !== JSON.parse(sessionStorage.getItem('GitHubUser')).login.toUpperCase()) {
+      sessionStorage.setItem('page', 1);
+      sessionStorage.setItem('offsetY', 0);
       fetchGitHubUser();
       async function fetchGitHubUser() {
         const response = await fetch('https://api.github.com/users/' + owner);
@@ -215,12 +211,12 @@ function RepoList() {
       ?
       <>
         {repoData.map((repo, index) => (
-          <>
-            <RepoRow repo={repo} key={index} />
+          <span key={index}>
+            <RepoRow repo={repo} />
             {repo !== repoData[repoData.length - 1] &&
               <hr className={styles.hr} />
             }
-          </>
+          </span>
         ))}
         {10 * page < userData.public_repos &&
           <div className={`d-flex justify-content-center ${styles.textMiddleBlue}`}>
