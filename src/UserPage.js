@@ -188,7 +188,11 @@ function RepoList() {
   }
 
   useEffect(() => {
-    window.scroll(0, sessionStorage.getItem('offsetY'));
+    window.scrollTo({
+      top: sessionStorage.getItem('offsetY'),
+      left: 0,
+      behavior: 'instant'
+    });
     if (JSON.parse(sessionStorage.getItem('Repos')).length === 0) {
       fetchRepos(1);
     }
