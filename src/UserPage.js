@@ -104,7 +104,7 @@ function Loading() {
                 <span>0 repos · 0 followers</span>
               </span>
             </div>
-            <a className={`mt-2 ${styles.btnSearchAnotherUser}`} href='/Dcard-2022-Web-Frontend-Intern-Homework' role='button'>Loading</a>
+            <a className={`mt-2 ${styles.btnSearchAnotherUser}`} href='/' role='button'>Loading</a>
           </header>
           <p className={styles.bio}>Loading...</p>
           <hr />
