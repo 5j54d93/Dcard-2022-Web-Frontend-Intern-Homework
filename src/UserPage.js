@@ -215,17 +215,19 @@ function RepoList() {
       ?
       <>
         {repoData.map((repo, index) => (
-          <RepoRow repo={repo} key={index} />
+          <>
+            <RepoRow repo={repo} key={index} />
+            {repo !== repoData[repoData.length - 1] &&
+              <hr className={styles.hr} />
+            }
+          </>
         ))}
-        {10 * page < userData.public_repos
-          ?
-          <div className={`text-center ${styles.textMiddleBlue}`}>
+        {10 * page < userData.public_repos &&
+          <div className={`d-flex justify-content-center ${styles.textMiddleBlue}`}>
             <div className='spinner-border' role='status'>
               <span className='visually-hidden' ref={progressRef}>Loading...</span>
             </div>
           </div>
-          :
-          <div className={`fs-5 text-center ${styles.textMiddleBlue}`}>No more repositories.</div>
         }
       </>
       :
