@@ -6,7 +6,7 @@
 
 ---
 
-> [Dcard 2022 Web Frontend Intern Homework.pdf](https://drive.google.com/file/d/1niPucGwf9qGEpLokVptK2a1zNeReS8WL/view)
+> [Dcard 2022 Web Frontend Intern Homework.pdf](https://drive.google.com/file/d/1niPucGwf9qGEpLokVptK2a1zNeReS8WL)
 
 A [**React**](https://reactjs.org) app designed like [**Dcard**](https://www.dcard.tw) with [Bootstrap](https://github.com/twbs/bootstrap) that could：
 
@@ -62,6 +62,8 @@ npm start
 ### [index.js](https://github.com/5j54d93/Dcard-2022-Web-Frontend-Intern-Homework/blob/main/src/index.js)：for direct route
 
 - every page will have [Navbar](https://github.com/5j54d93/Dcard-2022-Web-Frontend-Intern-Homework/blob/main/src/Navbar.js) and [Footer](https://github.com/5j54d93/Dcard-2022-Web-Frontend-Intern-Homework/blob/main/src/Footer.js)
+- [UserPage](https://github.com/5j54d93/Dcard-2022-Web-Frontend-Intern-Homework/blob/main/src/UserPage.js)：route at `/users/{username}/repos`
+- [RepoDetail](https://github.com/5j54d93/Dcard-2022-Web-Frontend-Intern-Homework/blob/main/src/RepoDetail.js)：route at `/users/{username}/repos/{repo}`
 - default at [Home](https://github.com/5j54d93/Dcard-2022-Web-Frontend-Intern-Homework/blob/main/src/Home.js)
 
 ```jsx
@@ -83,14 +85,18 @@ ReactDOM.render(
 );
 ```
 
-### [Home.js](https://github.com/5j54d93/Dcard-2022-Web-Frontend-Intern-Homework/blob/main/src/Home.js)：for search a GitHub user ＆ list all following users
+### [Home.js](https://github.com/5j54d93/Dcard-2022-Web-Frontend-Intern-Homework/blob/main/src/Home.js)：for search GitHub username ＆ list all following users
 
-1. [**`Search()`**](https://github.com/5j54d93/Dcard-2022-Web-Frontend-Intern-Homework/blob/ffa33d92b4c7434372286a3bc01770b1e4ca6420/src/Home.js#L17-L54)
-   - a search bar for user to input a GitHub username
-   - can't search if there's no input
-2. [**`FollowingUser()`**](https://github.com/5j54d93/Dcard-2022-Web-Frontend-Intern-Homework/blob/eba05fb1c4a56daef4b983e00f534f3dcb67ae62/src/Home.js#L56-L81)
-   - list all following users
-   - data from `localStorage`
+1. [**`SearchBar()`**](https://github.com/5j54d93/Dcard-2022-Web-Frontend-Intern-Homework/blob/b594b54a099a30a667a19790a0f4d0a75422421f/src/Home.js#L34-L83)
+   - a search bar for user to input GitHub username
+   - can't submit if there's no input
+   - use `useRef()` to prevent re-render while user is typing
+   - prepare data `onSubmit` before navigate to `UserPage` to ensure that `UserPage` will already have data to show on first render（won't render twice）
+   - store data that fetch from API in `sessionStorage` to prevent API recall if we need the same data later
+2. [**`FollowingUsers()`**](https://github.com/5j54d93/Dcard-2022-Web-Frontend-Intern-Homework/blob/b594b54a099a30a667a19790a0f4d0a75422421f/src/Home.js#L85-L98)
+   - list all following users stored in `localStorage`
+   - prepare data `onClick` before navigate to `UserPage` to ensure that `UserPage` will already have data to show on first render（won't render twice）
+   - store data that fetch from API in `sessionStorage` to prevent API recall if we need the same data later
 
 <img src="https://github.com/5j54d93/Dcard-2022-Web-Frontend-Intern-Homework/blob/main/.github/Asset/Home.png" width='100%' height='100%'/>
 
