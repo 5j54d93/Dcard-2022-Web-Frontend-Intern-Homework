@@ -30,6 +30,7 @@ export default function RepoDetail() {
     if (!sessionStorage.offsetY) {
       sessionStorage.setItem('offsetY', 0);
     }
+    window.scroll(0, 0);
   })
 
   useEffect(() => {
