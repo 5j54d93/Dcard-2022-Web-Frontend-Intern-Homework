@@ -219,7 +219,7 @@ function RepoList() {
           </span>
         ))}
         {10 * page < userData.public_repos &&
-          <div className={`d-flex justify-content-center ${styles.textMiddleBlue}`}>
+          <div className={`d-flex justify-content-center ${styles.progress}`}>
             <div className='spinner-border' role='status'>
               <span className='visually-hidden' ref={progressRef}>Loading...</span>
             </div>
