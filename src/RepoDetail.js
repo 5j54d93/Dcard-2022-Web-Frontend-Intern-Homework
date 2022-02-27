@@ -21,9 +21,6 @@ export default function RepoDetail() {
     if (!sessionStorage.repoDetail) {
       sessionStorage.setItem('repoDetail', '{}');
     }
-    if (!sessionStorage.Repos) {
-      sessionStorage.setItem('Repos', '[]');
-    }
     if (!sessionStorage.page) {
       sessionStorage.setItem('page', 0);
     }
@@ -35,6 +32,7 @@ export default function RepoDetail() {
 
   useEffect(() => {
     if (!sessionStorage.repoDetail || repo !== JSON.parse(sessionStorage.getItem('repoDetail')).name) {
+      sessionStorage.setItem('Repos', '[]');
       fetchGitHubUser();
       async function fetchGitHubUser() {
         const response = await fetch('https://api.github.com/users/' + owner);
