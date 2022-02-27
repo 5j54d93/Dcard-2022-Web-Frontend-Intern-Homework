@@ -174,30 +174,27 @@ function GitHubUser() {
 
 function RepoList() {
   const progressRef = useRef(null);
-  const [page, setPage] = useState(Number(sessionStorage.getItem('page')));
+  const page = Number(sessionStorage.getItem('page'));
   const userData = JSON.parse(sessionStorage.getItem('GitHubUser'));
-  const repoData = JSON.parse(sessionStorage.getItem('Repos'));
+  const [repoData, setRepoData] = useState(JSON.parse(sessionStorage.getItem('Repos')));
 
   async function fetchRepos(page) {
-    const response = await fetch('https://api.github.com/users/' + userData.login + '/repos?sort=created&per_page=10&page=' + page);
+    const response = await fetch('https://api.github.com/users/' + userData.login + '/repos?sort=created&per_page=10&page=' + page, {
+      headers: {
+        Authorization: 'token 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'
+      }
+    });
     const json = await response.json();
     sessionStorage.setItem('Repos', JSON.stringify(JSON.parse(sessionStorage.getItem('Repos')).concat(json)));
     sessionStorage.setItem('page', page);
     sessionStorage.setItem('offsetY', document.documentElement.scrollTop);
-    setPage(page);
+    setRepoData([...repoData, ...json]);
   }
 
   useEffect(() => {
     window.scroll(0, sessionStorage.getItem('offsetY'));
-    if (!sessionStorage.Repos) {
-      fetchReposPageOne();
-      async function fetchReposPageOne() {
-        const response = await fetch('https://api.github.com/users/' + userData.login + '/repos?sort=created&per_page=10&page=1');
-        const json = await response.json();
-        sessionStorage.setItem('Repos', JSON.stringify(json));
-        sessionStorage.setItem('page', 1);
-        setPage(1);
-      }
+    if (JSON.parse(sessionStorage.getItem('Repos')).length === 0) {
+      fetchRepos(1);
     }
     const observer = new IntersectionObserver((entries) => {
       if (entries[0].isIntersecting && 10 * page < userData.public_repos) {
@@ -213,8 +210,9 @@ function RepoList() {
     }
   })
 
-  if (sessionStorage.Repos && JSON.parse(sessionStorage.getItem('Repos')).length > 0) {
-    return (
+  return (
+    JSON.parse(sessionStorage.getItem('Repos')).length > 0
+      ?
       <>
         {repoData.map((repo, index) => (
           <RepoRow repo={repo} key={index} />
@@ -230,12 +228,9 @@ function RepoList() {
           <div className={`fs-5 text-center ${styles.textMiddleBlue}`}>No more repositories.</div>
         }
       </>
-    );
-  } else {
-    return (
+      :
       <div className={`fs-5 text-center ${styles.textMiddleBlue}`}>Loading...</div>
-    );
-  }
+  );
 }
 
 const RepoRow = memo(function RepoRow(props) {
@@ -243,13 +238,17 @@ const RepoRow = memo(function RepoRow(props) {
   const navigate = useNavigate();
 
   async function fetchData() {
-    const response = await fetch('https://api.github.com/repos/' + userData.login + '/' + props.repo.name);
+    const response = await fetch('https://api.github.com/repos/' + userData.login + '/' + props.repo.name, {
+      headers: {
+        Authorization: 'token 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'
+      }
+    });
     const json = await response.json();
     sessionStorage.setItem('repoDetail', JSON.stringify(json));
     navigate(props.repo.name);
   }
 
-  function handleClick() {
+  const handleClick = () => {
     sessionStorage.setItem('offsetY', document.documentElement.scrollTop);
     if (JSON.parse(sessionStorage.getItem('repoDetail')).name !== props.repo.name) {
       fetchData();
@@ -259,7 +258,7 @@ const RepoRow = memo(function RepoRow(props) {
   }
 
   return (
-    <div className={styles.repoRow} to={props.repo.name} onClick={() => handleClick()}>
+    <div className={styles.repoRow} onClick={handleClick}>
       <div className='d-flex align-items-center gap-2 mb-2'>
         <img className={`img-fluid ${styles.roundImage}`} src={userData.avatar_url} alt={userData.name} width='16px' height='16px' />
         <span className={`me-auto ${styles.repoRowOwnerTag}`}>{userData.name}</span>
