@@ -21,6 +21,9 @@ export default function RepoDetail() {
     if (!sessionStorage.repoDetail) {
       sessionStorage.setItem('repoDetail', '{}');
     }
+    if (!sessionStorage.Repos) {
+      sessionStorage.setItem('Repos', '[]');
+    }
     if (!sessionStorage.page) {
       sessionStorage.setItem('page', 0);
     }
