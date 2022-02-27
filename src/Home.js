@@ -14,6 +14,9 @@ export default function Home() {
     if (!sessionStorage.repoDetail) {
       sessionStorage.setItem('repoDetail', '{}');
     }
+    if (!sessionStorage.GitHubUser) {
+      sessionStorage.setItem('GitHubUser', '{"login":""}');
+    }
     sessionStorage.setItem('page', 1);
     sessionStorage.setItem('offsetY', 0);
   })
