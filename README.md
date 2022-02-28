@@ -87,6 +87,8 @@ ReactDOM.render(
 
 ### [Home.js](https://github.com/5j54d93/Dcard-2022-Web-Frontend-Intern-Homework/blob/main/src/Home.js)：for search GitHub username ＆ list all following users
 
+<img src="https://github.com/5j54d93/Dcard-2022-Web-Frontend-Intern-Homework/blob/main/.github/Asset/Home.png" width='100%' height='100%'/>
+
 1. [**`SearchBar()`**](https://github.com/5j54d93/Dcard-2022-Web-Frontend-Intern-Homework/blob/b594b54a099a30a667a19790a0f4d0a75422421f/src/Home.js#L34-L83)
    - a search bar for user to input GitHub username
    - can't submit if there's no input
@@ -98,37 +100,31 @@ ReactDOM.render(
    - prepare data `onClick` before navigate to `UserPage` to ensure that `UserPage` will already have data to show on first render（won't render twice）
    - store data that fetch from API in `sessionStorage` to prevent API recall if we need the same data later
 
-<img src="https://github.com/5j54d93/Dcard-2022-Web-Frontend-Intern-Homework/blob/main/.github/Asset/Home.png" width='100%' height='100%'/>
+### [UserPage.js](https://github.com/5j54d93/Dcard-2022-Web-Frontend-Intern-Homework/blob/main/src/UserPage.js)：for display GitHub user ＆ his/her all repositories
 
-### [UserPage.js](https://github.com/5j54d93/Dcard-2022-Web-Frontend-Intern-Homework/blob/main/src/UserPage.js)：show the GitHub user's info ＆ list all repositories
+<img src="https://github.com/5j54d93/Dcard-2022-Web-Frontend-Intern-Homework/blob/main/.github/Asset/UserPage.png" width='100%' height='100%'/>
 
-- `route` at [`/users/{username}/repos`](https://github.com/5j54d93/Dcard-2022-Web-Frontend-Intern-Homework/blob/2c216529e3b8e7bbbb6ea4944dc0a982e63f99e0/src/index.js#L18)
-- first check if what user search had already saved in `sessionStorage`
+- first check data we need had already saved in `sessionStorage`
   - if yes：get data from `sessionStorage`
-  - else：fetch data from API call [`GET /users/{username}`](https://docs.github.com/en/rest/reference/users#get-a-user)
-    - when fetch data from API, also save it in `sessionStorage`
-
-```jsx
-const userData =
-    sessionStorage.GitHubUser && JSON.parse(sessionStorage.getItem('GitHubUser')).login === owner
-      ? JSON.parse(sessionStorage.getItem('GitHubUser'))
-      : FetchGitHubUser(owner);
-```
-
-- if username isn't exit：show「No Such User」
-- else if number of user's repo == 0：show「Haven't created any repository yet」
-  - else：list all repositories
+  - else：fetch data from API call and save it in `sessionStorage`
+    - GitHub User：[`GET /users/{username}`](https://docs.github.com/en/rest/reference/users#get-a-user)
+    - Repos：[`GET /users/{username}/repos`](https://docs.github.com/en/rest/reference/repos#list-repositories-for-a-user)
+    - render [`Loading`](https://github.com/5j54d93/Dcard-2022-Web-Frontend-Intern-Homework/blob/a41fb7a68d1f00aa88996e370b258804276f06b2/src/UserPage.js#L88-L114) while API call
+- check data in `sessionStorage`
+  - if username isn't exit：show「No Such User」
+  - else if number of user's public repo＝0：show「Haven't created any repository yet」
+    - else：show [`RepoList`](https://github.com/5j54d93/Dcard-2022-Web-Frontend-Intern-Homework/blob/a9cb2cdfffe9c913d0721ecf4f35700b5bb0a432/src/UserPage.js#L171-L236)
 
 ```jsx
 {userData.message === 'Not Found'
-  ? <div className='fs-3 text-center text-middle-blue'>No Such User.</div>
+  ? <div className={`fs-3 text-center ${styles.textMiddleBlue}`}>No Such User.</div>
   : userData.public_repos === 0
-    ? <div className='fs-3 text-center text-middle-blue'>Haven't created any repository yet.</div>
-    : <RepoList username={owner} userData={userData} />
+    ? <div className={`fs-3 text-center ${styles.textMiddleBlue}`}>Haven't created any repository yet.</div>
+    : <RepoList />
 }
 ```
 
-<img src="https://github.com/5j54d93/Dcard-2022-Web-Frontend-Intern-Homework/blob/main/.github/Asset/No-Such-User.png" width='50%' height='100%'/><img src="https://github.com/5j54d93/Dcard-2022-Web-Frontend-Intern-Homework/blob/main/.github/Asset/Haven't-created-any-repo-yet.png" width='50%' height='100%'/>
+<img src="https://github.com/5j54d93/Dcard-2022-Web-Frontend-Intern-Homework/blob/main/.github/Asset/404.png" width='50%' height='100%'/><img src="https://github.com/5j54d93/Dcard-2022-Web-Frontend-Intern-Homework/blob/main/.github/Asset/0-public-repo.png" width='50%' height='100%'/>
 
 1. [**`GitHubUser()`**](https://github.com/5j54d93/Dcard-2022-Web-Frontend-Intern-Homework/blob/8786c282a180f0b13a866f35e7f4aa9ca353799a/src/UserPage.js#L85-L109)
    - if username isn't exit：show「Search another User」button, which onClick will go back to [`Home`](https://github.com/5j54d93/Dcard-2022-Web-Frontend-Intern-Homework/blob/main/src/Home.js)
@@ -161,8 +157,6 @@ if (
 
 4. [**`Progress()`**](https://github.com/5j54d93/Dcard-2022-Web-Frontend-Intern-Homework/blob/327e93da2d5445899d59f10c4d4809b4e11beddd/src/UserPage.js#L159-L171)
    - show「ProgressView」or「No more repository」depends on wether there's more repo to load
-
-<img src="https://github.com/5j54d93/Dcard-2022-Web-Frontend-Intern-Homework/blob/main/.github/Asset/UserPage.png" width='100%' height='100%'/>
 
 ### [RepoDetail.js](https://github.com/5j54d93/Dcard-2022-Web-Frontend-Intern-Homework/blob/main/src/RepoDetail.js)：display repository details
 
