@@ -67,7 +67,7 @@ export default function UserPage() {
           <main className={styles.userPage}>
             <GitHubUser />
             <div className={`p-4 mt-2 ${styles.bgWhiteContainer}`}>
-              {userData.message !== undefined && userData.message === 'Not Found'
+              {userData.message === 'Not Found'
                 ? <div className={`fs-3 text-center ${styles.textMiddleBlue}`}>No Such User.</div>
                 : userData.public_repos === 0
                   ? <div className={`fs-3 text-center ${styles.textMiddleBlue}`}>Haven't created any repository yet.</div>
