@@ -128,12 +128,12 @@ ReactDOM.render(
 
 1. [**`GitHubUser()`**](https://github.com/5j54d93/Dcard-2022-Web-Frontend-Intern-Homework/blob/43ed25d9a519423da8c4e36eb63424322d219bb9/src/UserPage.js#L116-L169)
 
-difference between users and organizations：
+Infos differet between users and organizations：
 
-|＼|User|Organization|
+||User|Organization|
 |:-:|:-:|:-:|
 |**info**|num of repos、num of followers|location、blog link|
-|**tag below `hr`**|All Public Repositories|`num` Public Repositories|
+|**tag above `RepoList`**|"All Public Repositories"|"`.public_repos` Public Repositories"|
 
 <img src="https://github.com/5j54d93/Dcard-2022-Web-Frontend-Intern-Homework/blob/main/.github/Asset/User-info.png" width='50%' height='100%'/><img src="https://github.com/5j54d93/Dcard-2022-Web-Frontend-Intern-Homework/blob/main/.github/Asset/Organization-info.png" width='50%' height='100%'/>
 
