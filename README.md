@@ -23,8 +23,16 @@ A [**React**](https://reactjs.org) app designed like [**Dcard**](https://www.dca
    - [On GitHub Page](https://github.com/5j54d93/Dcard-2022-Web-Frontend-Intern-Homework#on-github-page)
    - [On Your Computer](https://github.com/5j54d93/Dcard-2022-Web-Frontend-Intern-Homework#on-your-computer)
 2. [**Architecture Design**](https://github.com/5j54d93/Dcard-2022-Web-Frontend-Intern-Homework#architecture-design)
+   - [index.js](https://github.com/5j54d93/Dcard-2022-Web-Frontend-Intern-Homework#indexjsfor-direct-route)：for direct route
+   - [Home.js](https://github.com/5j54d93/Dcard-2022-Web-Frontend-Intern-Homework#homejsfor-search-a-github-username--list-all-following-users)：for search a GitHub username ＆ list all following users
+   - [UserPage.js](https://github.com/5j54d93/Dcard-2022-Web-Frontend-Intern-Homework#userpagejsfor-display-github-user--hisher-all-repositories)：for display GitHub user ＆ his/her all repositories
+   - [RepoDetail.js](https://github.com/5j54d93/Dcard-2022-Web-Frontend-Intern-Homework#repodetailjsfor-display-repository-details)：for display repository details
+   - [Components](https://github.com/5j54d93/Dcard-2022-Web-Frontend-Intern-Homework#componentsused-not-only-on-one-page)：used not only on one page
 3. [**Learn More**](https://github.com/5j54d93/Dcard-2022-Web-Frontend-Intern-Homework#learn-more)
-4. [**LICENSE**](https://github.com/5j54d93/Dcard-2022-Web-Frontend-Intern-Homework#license)
+   - [Rate Limit](https://github.com/5j54d93/Dcard-2022-Web-Frontend-Intern-Homework#rate-limit)
+   - [Responsive Web Design](https://github.com/5j54d93/Dcard-2022-Web-Frontend-Intern-Homework#responsive-web-design)
+   - [Better User Experience on small Devices](https://github.com/5j54d93/Dcard-2022-Web-Frontend-Intern-Homework#better-user-experience-on-small-devices)
+4. [**LICENSE**](https://github.com/5j54d93/Dcard-2022-Web-Frontend-Intern-Homework#license)：MIT
 
 ## How To Use
 
@@ -57,7 +65,7 @@ npm start
 
 `npm start` will automatically open [**http://localhost:3000**](http://localhost:3000) on your computer.
 
-## Architecture Design
+## Architecture Design & Explanation
 
 ### [index.js](https://github.com/5j54d93/Dcard-2022-Web-Frontend-Intern-Homework/blob/main/src/index.js)：for direct route
 
