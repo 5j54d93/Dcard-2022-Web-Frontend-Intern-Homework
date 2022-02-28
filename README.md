@@ -169,25 +169,34 @@ window.scrollTo({
     - GitHub User：[`GET /users/{username}`](https://docs.github.com/en/rest/reference/users#get-a-user)
     - Repo Data：[`GET /repos/{owner}/{repo}`](https://docs.github.com/en/rest/reference/repos#get-a-repository)
     - render [`Loading`](https://github.com/5j54d93/Dcard-2022-Web-Frontend-Intern-Homework/blob/740823717bb658615f2ac42807d3a9c70825f71c/src/RepoDetail.js#L80-L126) while API call
+- Click right-bottom GitHub icon could go to repository page on GitHub
 
-### [Components/](https://github.com/5j54d93/Dcard-2022-Web-Frontend-Intern-Homework/tree/main/src/Components)：used not only on one page
+### [Components](https://github.com/5j54d93/Dcard-2022-Web-Frontend-Intern-Homework/tree/main/src/Components)：used not only on one page
 
 - [**`CreateTime.js`**](https://github.com/5j54d93/Dcard-2022-Web-Frontend-Intern-Homework/blob/main/src/Components/CreateTime.js)
   - use `memo` to prevent re-render
   - reusable：use `props.displayTime` to display
-    - day month year on [`RepoRow`](https://github.com/5j54d93/Dcard-2022-Web-Frontend-Intern-Homework/blob/327e93da2d5445899d59f10c4d4809b4e11beddd/src/UserPage.js#L141-L157)
-    - day month year time on [`RepoDetail`](https://github.com/5j54d93/Dcard-2022-Web-Frontend-Intern-Homework/blob/main/src/RepoDetail.js)
+    - day month year on `RepoRow`
+    - day month year time on `RepoDetail`
 - [**`IconGroup.js`**](https://github.com/5j54d93/Dcard-2022-Web-Frontend-Intern-Homework/blob/main/src/Components/IconGroup.js)
   - use `memo` to prevent re-render
 - [**`FollowButton.js`**](https://github.com/5j54d93/Dcard-2022-Web-Frontend-Intern-Homework/blob/main/src/Components/FollowButton.js)
-  - return Following or Follow depends on wether the username is saved in [`localStorage`](https://github.com/5j54d93/Dcard-2022-Web-Frontend-Intern-Homework/blob/2d24cf9a754c6076e46cb27ea9c89e3bf14f4a18/src/Components/FollowButton.js#L6)
-  - save or delete user data in `localStorage` while the button [onClick](https://github.com/5j54d93/Dcard-2022-Web-Frontend-Intern-Homework/blob/2d24cf9a754c6076e46cb27ea9c89e3bf14f4a18/src/Components/FollowButton.js#L17)
+  - return Following or Follow depends on wether the username is saved in [`localStorage`](https://github.com/5j54d93/Dcard-2022-Web-Frontend-Intern-Homework/blob/2d6fba31f1e458306e705857f854a3d4d53a096f/src/Components/FollowButton.js#L9-L16)
+  - save or delete user data in `localStorage` while the button [onClick](https://github.com/5j54d93/Dcard-2022-Web-Frontend-Intern-Homework/blob/2d6fba31f1e458306e705857f854a3d4d53a096f/src/Components/FollowButton.js#L19-L32)
 
 ## Learn More
 
 ### Rate Limit
 
-If [5j54d93.github.io/Dcard-2022-Web-Frontend-Intern-Homework](https://5j54d93.github.io/Dcard-2022-Web-Frontend-Intern-Homework) or this React app that run on your computer didn't work well, you may exceed GitHub Rest API Rate Limit which is up to 60 requests per hour. For more information, [view this official doc](https://docs.github.com/en/rest/overview/resources-in-the-rest-api#rate-limiting).
+I've used token on [5j54d93.github.io/Dcard-2022-Web-Frontend-Intern-Homework](https://5j54d93.github.io/Dcard-2022-Web-Frontend-Intern-Homework), so GitHub Rest API Rate Limit will up to 5000 requests per hour. But I don't used it on main branch source code for security, so if you run this React app on your computer, Rate Limit will only up to 60 requests per hour. For more information, [view this official doc](https://docs.github.com/en/rest/overview/resources-in-the-rest-api#rate-limiting).
+
+```jsx
+const response = await fetch(URL, {
+  headers: {
+    Authorization: 'token TOKEN'
+  }
+});
+```
 
 ### Better User Experience on small Devices
 
