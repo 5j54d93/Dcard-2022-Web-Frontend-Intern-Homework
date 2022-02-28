@@ -105,8 +105,8 @@ ReactDOM.render(
 <img src="https://github.com/5j54d93/Dcard-2022-Web-Frontend-Intern-Homework/blob/main/.github/Asset/UserPage.png" width='100%' height='100%'/>
 
 - first check data we need had already saved in `sessionStorage`
-  - if yes：get data from `sessionStorage`
-  - else：fetch data from API call and save it in `sessionStorage`
+  - if yes（get this page from `Home` or `RepoDetail`）：get data from `sessionStorage`
+  - else（get this page via link directly）：fetch data from API call and save it in `sessionStorage`
     - GitHub User：[`GET /users/{username}`](https://docs.github.com/en/rest/reference/users#get-a-user)
     - Repos：[`GET /users/{username}/repos`](https://docs.github.com/en/rest/reference/repos#list-repositories-for-a-user)
     - render [`Loading`](https://github.com/5j54d93/Dcard-2022-Web-Frontend-Intern-Homework/blob/a41fb7a68d1f00aa88996e370b258804276f06b2/src/UserPage.js#L88-L114) while API call
@@ -126,16 +126,16 @@ ReactDOM.render(
 
 <img src="https://github.com/5j54d93/Dcard-2022-Web-Frontend-Intern-Homework/blob/main/.github/Asset/404.png" width='50%' height='100%'/><img src="https://github.com/5j54d93/Dcard-2022-Web-Frontend-Intern-Homework/blob/main/.github/Asset/0-public-repo.png" width='50%' height='100%'/>
 
-1. [**`GitHubUser()`**](https://github.com/5j54d93/Dcard-2022-Web-Frontend-Intern-Homework/blob/8786c282a180f0b13a866f35e7f4aa9ca353799a/src/UserPage.js#L85-L109)
-   - if username isn't exit：show「Search another User」button, which onClick will go back to [`Home`](https://github.com/5j54d93/Dcard-2022-Web-Frontend-Intern-Homework/blob/main/src/Home.js)
-   - else：show [`FollowButton`](https://github.com/5j54d93/Dcard-2022-Web-Frontend-Intern-Homework/blob/main/src/Components/FollowButton.js)
+1. [**`GitHubUser()`**](https://github.com/5j54d93/Dcard-2022-Web-Frontend-Intern-Homework/blob/43ed25d9a519423da8c4e36eb63424322d219bb9/src/UserPage.js#L116-L169)
 
-```jsx
-{props.userData.message === 'Not Found'
-  ? <a className='btn-light-blue' href='/' role='button'>Search another User</a>
-  : <FollowButton avatarUrl={props.userData.avatar_url} name={props.userData.name} username={props.username} />
-}
-```
+difference between users and Organizations：
+
+|＼|User|Organization|
+|:-:|:-:|:-:|
+|**info**|num of repos、num of followers|location、blog link|
+|**tag below `hr`**|All Public Repositories|`num` Public Repositories|
+
+<img src="https://github.com/5j54d93/Dcard-2022-Web-Frontend-Intern-Homework/blob/main/.github/Asset/User-info.png" width='50%' height='100%'/><img src="https://github.com/5j54d93/Dcard-2022-Web-Frontend-Intern-Homework/blob/main/.github/Asset/Organization-info.png" width='50%' height='100%'/>
 
 2. [**`RepoList()`**](https://github.com/5j54d93/Dcard-2022-Web-Frontend-Intern-Homework/blob/8786c282a180f0b13a866f35e7f4aa9ca353799a/src/UserPage.js#L111-L139)
    - handle infinite scroll
