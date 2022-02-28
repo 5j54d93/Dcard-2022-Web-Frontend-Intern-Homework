@@ -1,8 +1,10 @@
 # Dcard 2022 Web Frontend Intern Homework
 
 ![GitHub](https://img.shields.io/github/license/5j54d93/Dcard-2022-Web-Frontend-Intern-Homework)
+![GitHub release (latest by date)](https://img.shields.io/github/v/release/5j54d93/Dcard-2022-Web-Frontend-Intern-Homework)
 ![GitHub Repo stars](https://img.shields.io/github/stars/5j54d93/Dcard-2022-Web-Frontend-Intern-Homework)
 ![GitHub language count](https://img.shields.io/github/languages/count/5j54d93/Dcard-2022-Web-Frontend-Intern-Homework)
+![GitHub top language](https://img.shields.io/github/languages/top/5j54d93/Dcard-2022-Web-Frontend-Intern-Homework)
 ![GitHub repo size](https://img.shields.io/github/repo-size/5j54d93/Dcard-2022-Web-Frontend-Intern-Homework)
 
 > [Dcard 2022 Web Frontend Intern Homework.pdf](https://github.com/5j54d93/Dcard-2022-Web-Frontend-Intern-Homework/blob/main/.github/File/2022%20Web%20Frontend%20Intern%20Homework.pdf)
