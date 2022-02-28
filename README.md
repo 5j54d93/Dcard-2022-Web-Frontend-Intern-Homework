@@ -128,7 +128,7 @@ ReactDOM.render(
 
 1. [**`GitHubUser()`**](https://github.com/5j54d93/Dcard-2022-Web-Frontend-Intern-Homework/blob/43ed25d9a519423da8c4e36eb63424322d219bb9/src/UserPage.js#L116-L169)
 
-Infos differet between users and organizations：
+Differences between user and organization：
 
 ||User|Organization|
 |:-:|:-:|:-:|
@@ -137,26 +137,27 @@ Infos differet between users and organizations：
 
 <img src="https://github.com/5j54d93/Dcard-2022-Web-Frontend-Intern-Homework/blob/main/.github/Asset/User-info.png" width='50%' height='100%'/><img src="https://github.com/5j54d93/Dcard-2022-Web-Frontend-Intern-Homework/blob/main/.github/Asset/Organization-info.png" width='50%' height='100%'/>
 
-2. [**`RepoList()`**](https://github.com/5j54d93/Dcard-2022-Web-Frontend-Intern-Homework/blob/8786c282a180f0b13a866f35e7f4aa9ca353799a/src/UserPage.js#L111-L139)
-   - handle infinite scroll
-   - using `Math.round()` for work well in Chrome
+2. [**`RepoList()`**](https://github.com/5j54d93/Dcard-2022-Web-Frontend-Intern-Homework/blob/e73501e7ed093ff15a63b9ebb8533aa071355dba/src/UserPage.js#L171-L236)
+   - use `useRef()` & [`IntersectionObserver`](https://github.com/5j54d93/Dcard-2022-Web-Frontend-Intern-Homework/blob/e73501e7ed093ff15a63b9ebb8533aa071355dba/src/UserPage.js#L199-L210) on [ProgressView](https://github.com/5j54d93/Dcard-2022-Web-Frontend-Intern-Homework/blob/e73501e7ed093ff15a63b9ebb8533aa071355dba/src/UserPage.js#L226-L230) to achieve infinite scroll without always listening to `window.innerHeight`、`document.documentElement.scrollTop`、`document.documentElement.offsetHeight`
+   - store repos data in `sessionStorage`, so when user go to `RepoDetail` and back, we won't re-fetch data from API
+   - use `window.scrollTo()` to ensure that when user go to `RepoDetail` and back, the position of `UserPage` will be the same of previous position（won't go back to top）
+     - because `window.scrollTo()` default with animation in Chrome, we use `behavior: 'instant'` to prevent that for better user experience
 
 ```jsx
-if (
-  Math.round(window.innerHeight + document.documentElement.scrollTop) === document.documentElement.offsetHeight
-  &&
-  10 * page < props.userData.public_repos
-)
+window.scrollTo({
+  top: sessionStorage.getItem('offsetY'),
+  left: 0,
+  behavior: 'instant'
+});
 ```
 
-3. [**`RepoRow()`**](https://github.com/5j54d93/Dcard-2022-Web-Frontend-Intern-Homework/blob/327e93da2d5445899d59f10c4d4809b4e11beddd/src/UserPage.js#L141-L157)
-   - use `memo` to prevent re-render the whole `RepoList()` while fetch the next 10 repos
-   - which means only render the next 10 new repo！
+3. [**`RepoRow()`**](https://github.com/5j54d93/Dcard-2022-Web-Frontend-Intern-Homework/blob/e73501e7ed093ff15a63b9ebb8533aa071355dba/src/UserPage.js#L238-L282)
+   - use `React.memo` to prevent re-render every `RepoRow()` in `RepoList()`, only render the next 10 new repos or less in infinite scroll！
+   - prepare data `onClick` before navigate to `RepoDetail` to ensure that `RepoDetail` will already have data to show on first render（won't render twice）
+   - store data that fetch from API in `sessionStorage` to prevent API recall if we need the same data later
+     - we also save `document.documentElement.scrollTop` in `sessionStorage` onClick
 
-<img src="https://github.com/5j54d93/Dcard-2022-Web-Frontend-Intern-Homework/blob/main/.github/Asset/Prevent-Rerender-RepoRow.gif" width='100%' height='100%'/>
-
-4. [**`Progress()`**](https://github.com/5j54d93/Dcard-2022-Web-Frontend-Intern-Homework/blob/327e93da2d5445899d59f10c4d4809b4e11beddd/src/UserPage.js#L159-L171)
-   - show「ProgressView」or「No more repository」depends on wether there's more repo to load
+<img src="https://github.com/5j54d93/Dcard-2022-Web-Frontend-Intern-Homework/blob/main/.github/Asset/RepoList-prevent-rerender.gif" width='100%' height='100%'/>
 
 ### [RepoDetail.js](https://github.com/5j54d93/Dcard-2022-Web-Frontend-Intern-Homework/blob/main/src/RepoDetail.js)：display repository details
 
