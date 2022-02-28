@@ -43,7 +43,7 @@ A [**React**](https://reactjs.org) app designed like [**Dcard**](https://www.dca
 
 0. Your computer should have downloaded [Node.js](https://nodejs.org/en) before（Node >= 14.0.0 and npm >= 5.6）
 
-1. Download this repository via `git clone` or from Releases
+1. Download this repository via `git clone` or from [Releases](https://github.com/5j54d93/Dcard-2022-Web-Frontend-Intern-Homework/releases)
 
 ```shell
 git clone https://github.com/5j54d93/Dcard-2022-Web-Frontend-Intern-Homework
