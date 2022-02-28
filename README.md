@@ -7,8 +7,6 @@
 ![GitHub top language](https://img.shields.io/github/languages/top/5j54d93/Dcard-2022-Web-Frontend-Intern-Homework)
 ![GitHub repo size](https://img.shields.io/github/repo-size/5j54d93/Dcard-2022-Web-Frontend-Intern-Homework)
 
-> [Dcard 2022 Web Frontend Intern Homework.pdf](https://github.com/5j54d93/Dcard-2022-Web-Frontend-Intern-Homework/blob/main/.github/File/2022%20Web%20Frontend%20Intern%20Homework.pdf)
-
 A [**React**](https://reactjs.org) app designed like [**Dcard**](https://www.dcard.tw) with [Bootstrap](https://github.com/twbs/bootstrap) that could：
 
 - search users/organizations on [GitHub](https://github.com)
@@ -17,6 +15,8 @@ A [**React**](https://reactjs.org) app designed like [**Dcard**](https://www.dca
 - follow or unfollow a user/organization which data store in `localStorage`
 
 <img src="https://github.com/5j54d93/Dcard-2022-Web-Frontend-Intern-Homework/blob/main/.github/Asset/Demo.gif" width='100%' height='100%'/>
+
+> [Dcard 2022 Web Frontend Intern Homework.pdf](https://github.com/5j54d93/Dcard-2022-Web-Frontend-Intern-Homework/blob/main/.github/File/2022%20Web%20Frontend%20Intern%20Homework.pdf)
 
 ## Overview
 
