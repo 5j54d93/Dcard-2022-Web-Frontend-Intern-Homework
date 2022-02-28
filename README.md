@@ -190,7 +190,7 @@ window.scrollTo({
   - use `memo` to prevent re-render
 - [**`FollowButton.js`**](https://github.com/5j54d93/Dcard-2022-Web-Frontend-Intern-Homework/blob/main/src/Components/FollowButton.js)
   - return Following or Follow depends on wether the username is saved in [`localStorage`](https://github.com/5j54d93/Dcard-2022-Web-Frontend-Intern-Homework/blob/2d6fba31f1e458306e705857f854a3d4d53a096f/src/Components/FollowButton.js#L9-L16)
-  - save or delete user data in `localStorage` while the button [onClick](https://github.com/5j54d93/Dcard-2022-Web-Frontend-Intern-Homework/blob/2d6fba31f1e458306e705857f854a3d4d53a096f/src/Components/FollowButton.js#L19-L32)
+  - save or delete user data in `localStorage` while the button [`onClick`](https://github.com/5j54d93/Dcard-2022-Web-Frontend-Intern-Homework/blob/2d6fba31f1e458306e705857f854a3d4d53a096f/src/Components/FollowButton.js#L19-L32)
 
 ## Learn More
 
@@ -217,6 +217,6 @@ Thanks to Bootstrap, our React app could response well on every different device
 
 <img src="https://github.com/5j54d93/Dcard-2022-Web-Frontend-Intern-Homework/blob/main/.github/Asset/Screen-Shot-on-iPhone-1.png" width='33.33%' height='100%'/><img src="https://github.com/5j54d93/Dcard-2022-Web-Frontend-Intern-Homework/blob/main/.github/Asset/Screen-Shot-on-iPhone-2.png" width='33.33%' height='100%'/><img src="https://github.com/5j54d93/Dcard-2022-Web-Frontend-Intern-Homework/blob/main/.github/Asset/Screen-Shot-on-iPhone-3.png" width='33.33%' height='100%'/>
 
-## License
+## License：MIT
 
 This package is [MIT licensed](https://github.com/5j54d93/Dcard-2022-Web-Frontend-Intern-Homework/blob/main/LICENSE).
