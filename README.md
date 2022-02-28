@@ -209,30 +209,6 @@ const response = await fetch(URL, {
 
 Thanks to Bootstrap, our React app could response well on every different devices！
 
-### Lighthouse：PageSpeed Insights
-
-#### All performance scores got 100 on desktop.
-
-#### `Home` on mobile
-
-<img src="https://github.com/5j54d93/Dcard-2022-Web-Frontend-Intern-Homework/blob/main/.github/Asset/Lighthouse：App.png" width='100%' height='100%'/>
-
-#### [RepoList](https://github.com/5j54d93/Dcard-2022-Web-Frontend-Intern-Homework/blob/main/src/RepoList.js) on mobile
-
-Performance score got orange（50-89）because of using Bootstrap which cost 0.15s to load.
-
-<img src="https://github.com/5j54d93/Dcard-2022-Web-Frontend-Intern-Homework/blob/main/.github/Asset/Lighthouse：RepoList.png" width='100%' height='100%'/>
-
-#### [RepoDetail](https://github.com/5j54d93/Dcard-2022-Web-Frontend-Intern-Homework/blob/main/src/RepoDetail.js) on mobile
-
-<img src="https://github.com/5j54d93/Dcard-2022-Web-Frontend-Intern-Homework/blob/main/.github/Asset/Lighthouse：RepoDetail.png" width='100%' height='100%'/>
-
-### Use Console like Dcard
-
-### 🥰 Dcard Favicon！～
-
-<img src="https://github.com/5j54d93/Dcard-2022-Web-Frontend-Intern-Homework/blob/main/.github/Asset/DcardFavicon.png" width='50%' height='100%'/>
-
 ## License
 
 This package is [MIT licensed](https://github.com/5j54d93/Dcard-2022-Web-Frontend-Intern-Homework/blob/main/LICENSE).
