@@ -200,6 +200,11 @@ const response = await fetch(URL, {
 
 ### Better User Experience on small Devices
 
+1. Truncate Navbar title into「...」
+2. smaller padding with `@media (max-width: 760px)`
+
+<img src="https://github.com/5j54d93/Dcard-2022-Web-Frontend-Intern-Homework/blob/main/.github/Asset/Screen-Shot-on-iPhone-1.png" width='33.33%' height='100%'/><img src="https://github.com/5j54d93/Dcard-2022-Web-Frontend-Intern-Homework/blob/main/.github/Asset/Screen-Shot-on-iPhone-2.png" width='33.33%' height='100%'/><img src="https://github.com/5j54d93/Dcard-2022-Web-Frontend-Intern-Homework/blob/main/.github/Asset/Screen-Shot-on-iPhone-3.png" width='33.33%' height='100%'/>
+
 ### Responsive Web Design
 
 Thanks to Bootstrap, our React app could response well on every different devices！
@@ -208,7 +213,7 @@ Thanks to Bootstrap, our React app could response well on every different device
 
 #### All performance scores got 100 on desktop.
 
-#### [App](https://github.com/5j54d93/Dcard-2022-Web-Frontend-Intern-Homework/blob/main/src/App.js) on mobile
+#### `Home` on mobile
 
 <img src="https://github.com/5j54d93/Dcard-2022-Web-Frontend-Intern-Homework/blob/main/.github/Asset/Lighthouse：App.png" width='100%' height='100%'/>
 
