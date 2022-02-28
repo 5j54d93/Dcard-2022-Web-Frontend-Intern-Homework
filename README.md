@@ -22,7 +22,7 @@ A [**React**](https://reactjs.org) app designed like [**Dcard**](https://www.dca
 1. [**How To Use**](https://github.com/5j54d93/Dcard-2022-Web-Frontend-Intern-Homework#how-to-use)
    - [On GitHub Page](https://github.com/5j54d93/Dcard-2022-Web-Frontend-Intern-Homework#on-github-page)
    - [On Your Computer](https://github.com/5j54d93/Dcard-2022-Web-Frontend-Intern-Homework#on-your-computer)
-2. [**Architecture Design**](https://github.com/5j54d93/Dcard-2022-Web-Frontend-Intern-Homework#architecture-design)
+2. [**Architecture Design & Explanation**](https://github.com/5j54d93/Dcard-2022-Web-Frontend-Intern-Homework#architecture-design--explanation)
    - [index.js](https://github.com/5j54d93/Dcard-2022-Web-Frontend-Intern-Homework#indexjsfor-direct-route)：for direct route
    - [Home.js](https://github.com/5j54d93/Dcard-2022-Web-Frontend-Intern-Homework#homejsfor-search-a-github-username--list-all-following-users)：for search a GitHub username ＆ list all following users
    - [UserPage.js](https://github.com/5j54d93/Dcard-2022-Web-Frontend-Intern-Homework#userpagejsfor-display-github-user--hisher-all-repositories)：for display GitHub user ＆ his/her all repositories
