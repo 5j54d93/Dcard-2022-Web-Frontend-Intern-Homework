@@ -175,11 +175,7 @@ function RepoList() {
   const [repoData, setRepoData] = useState(JSON.parse(sessionStorage.getItem('Repos')));
 
   async function fetchRepos(page) {
-    const response = await fetch('https://api.github.com/users/' + userData.login + '/repos?sort=created&per_page=10&page=' + page, {
-      headers: {
-        Authorization: 'token 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'
-      }
-    });
+    const response = await fetch('https://api.github.com/users/' + userData.login + '/repos?sort=created&per_page=10&page=' + page);
     const json = await response.json();
     sessionStorage.setItem('Repos', JSON.stringify(JSON.parse(sessionStorage.getItem('Repos')).concat(json)));
     sessionStorage.setItem('page', page);
@@ -240,11 +236,7 @@ const RepoRow = memo(function RepoRow(props) {
   const navigate = useNavigate();
 
   async function fetchData() {
-    const response = await fetch('https://api.github.com/repos/' + userData.login + '/' + props.repo.name, {
-      headers: {
-        Authorization: 'token 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'
-      }
-    });
+    const response = await fetch('https://api.github.com/repos/' + userData.login + '/' + props.repo.name);
     const json = await response.json();
     sessionStorage.setItem('repoDetail', JSON.stringify(json));
     navigate(props.repo.name);
