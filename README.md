@@ -62,9 +62,9 @@ npm start
 ### [index.js](https://github.com/5j54d93/Dcard-2022-Web-Frontend-Intern-Homework/blob/main/src/index.js)：for direct route
 
 - every page will have [Navbar](https://github.com/5j54d93/Dcard-2022-Web-Frontend-Intern-Homework/blob/main/src/Navbar.js) and [Footer](https://github.com/5j54d93/Dcard-2022-Web-Frontend-Intern-Homework/blob/main/src/Footer.js)
+- [Home](https://github.com/5j54d93/Dcard-2022-Web-Frontend-Intern-Homework/blob/main/src/Home.js)：route at `/`
 - [UserPage](https://github.com/5j54d93/Dcard-2022-Web-Frontend-Intern-Homework/blob/main/src/UserPage.js)：route at `/users/{username}/repos`
 - [RepoDetail](https://github.com/5j54d93/Dcard-2022-Web-Frontend-Intern-Homework/blob/main/src/RepoDetail.js)：route at `/users/{username}/repos/{repo}`
-- default at [Home](https://github.com/5j54d93/Dcard-2022-Web-Frontend-Intern-Homework/blob/main/src/Home.js)
 
 ```jsx
 ReactDOM.render(
@@ -85,7 +85,7 @@ ReactDOM.render(
 );
 ```
 
-### [Home.js](https://github.com/5j54d93/Dcard-2022-Web-Frontend-Intern-Homework/blob/main/src/Home.js)：for search GitHub username ＆ list all following users
+### [Home.js](https://github.com/5j54d93/Dcard-2022-Web-Frontend-Intern-Homework/blob/main/src/Home.js)：for search a GitHub username ＆ list all following users
 
 <img src="https://github.com/5j54d93/Dcard-2022-Web-Frontend-Intern-Homework/blob/main/.github/Asset/Home.png" width='100%' height='100%'/>
 
@@ -159,22 +159,16 @@ window.scrollTo({
 
 <img src="https://github.com/5j54d93/Dcard-2022-Web-Frontend-Intern-Homework/blob/main/.github/Asset/RepoList-prevent-rerender.gif" width='100%' height='100%'/>
 
-### [RepoDetail.js](https://github.com/5j54d93/Dcard-2022-Web-Frontend-Intern-Homework/blob/main/src/RepoDetail.js)：display repository details
-
-- `route` at [`/users/{username}/repos/{repo}`](https://github.com/5j54d93/Dcard-2022-Web-Frontend-Intern-Homework/blob/2c216529e3b8e7bbbb6ea4944dc0a982e63f99e0/src/index.js#L19)
-- fetch data from API call：[`GET /repos/{owner}/{repo}`](https://docs.github.com/en/rest/reference/repos#get-a-repository)
-  - `.owner.avatar_url`：owner's avatar url
-  - `.owner.login`：owner's username
-  - `.full_name`：repo title
-  - `.created_at`：the time when the repo been created
-  - `.description`：repo description
-  - `.topics`：array of repo's topics
-  - `.stargazers_count`：repo's stars count
-  - `.forks_count`：repo's forks count
-  - `.language`：repo's language
-  - `.html_url`：external link to GitHub repository page
+### [RepoDetail.js](https://github.com/5j54d93/Dcard-2022-Web-Frontend-Intern-Homework/blob/main/src/RepoDetail.js)：for display repository details
 
 <img src="https://github.com/5j54d93/Dcard-2022-Web-Frontend-Intern-Homework/blob/main/.github/Asset/RepoDetail.png" width='100%' height='100%'/>
+
+- first check data we need had already saved in `sessionStorage`
+  - if yes（get this page from `UserPage`）：get data from `sessionStorage`
+  - else（get this page via link directly）：fetch data from API call and save it in `sessionStorage`
+    - GitHub User：[`GET /users/{username}`](https://docs.github.com/en/rest/reference/users#get-a-user)
+    - Repo Data：[`GET /repos/{owner}/{repo}`](https://docs.github.com/en/rest/reference/repos#get-a-repository)
+    - render [`Loading`](https://github.com/5j54d93/Dcard-2022-Web-Frontend-Intern-Homework/blob/740823717bb658615f2ac42807d3a9c70825f71c/src/RepoDetail.js#L80-L126) while API call
 
 ### [Components/](https://github.com/5j54d93/Dcard-2022-Web-Frontend-Intern-Homework/tree/main/src/Components)：used not only on one page
 
