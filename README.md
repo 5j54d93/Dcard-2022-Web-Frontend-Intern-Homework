@@ -197,7 +197,9 @@ window.scrollTo({
 
 ### Rate Limit
 
-I've used token on [5j54d93.github.io/Dcard-2022-Web-Frontend-Intern-Homework](https://5j54d93.github.io/Dcard-2022-Web-Frontend-Intern-Homework), so GitHub Rest API Rate Limit will up to 5000 requests per hour. But I don't used it on main branch source code for security, so if you run this React app on your computer, Rate Limit will only up to 60 requests per hour. For more information, [view this official doc](https://docs.github.com/en/rest/overview/resources-in-the-rest-api#rate-limiting).
+With access tokens, GitHub Rest API Rate Limit could up to 5000 requests per hour. But because this is a public repo and our React app is depolied on Github page, we couldn't use token（GitHub will delete token if it detect that we commit it）. Rate Limit will only up to 60 requests per hour！For more information, [view this official doc](https://docs.github.com/en/rest/overview/resources-in-the-rest-api#rate-limiting).
+
+I've used token like below when this repo is private, and the token won't remove itself！
 
 ```jsx
 const response = await fetch(URL, {
