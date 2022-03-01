@@ -1,11 +1,10 @@
 # Dcard 2022 Web Frontend Intern Homework
 
 [![pages-build-deployment](https://github.com/5j54d93/Dcard-2022-Web-Frontend-Intern-Homework/actions/workflows/pages/pages-build-deployment/badge.svg)](https://github.com/5j54d93/Dcard-2022-Web-Frontend-Intern-Homework/actions/workflows/pages/pages-build-deployment)
+[![CodeQL](https://github.com/5j54d93/Dcard-2022-Web-Frontend-Intern-Homework/actions/workflows/codeql-analysis.yml/badge.svg)](https://github.com/5j54d93/Dcard-2022-Web-Frontend-Intern-Homework/actions/workflows/codeql-analysis.yml)
 ![GitHub](https://img.shields.io/github/license/5j54d93/Dcard-2022-Web-Frontend-Intern-Homework)
-![GitHub release (latest by date)](https://img.shields.io/github/v/release/5j54d93/Dcard-2022-Web-Frontend-Intern-Homework)
 ![GitHub Repo stars](https://img.shields.io/github/stars/5j54d93/Dcard-2022-Web-Frontend-Intern-Homework)
-![GitHub language count](https://img.shields.io/github/languages/count/5j54d93/Dcard-2022-Web-Frontend-Intern-Homework)
-![GitHub top language](https://img.shields.io/github/languages/top/5j54d93/Dcard-2022-Web-Frontend-Intern-Homework)
+![GitHub release (latest by date)](https://img.shields.io/github/v/release/5j54d93/Dcard-2022-Web-Frontend-Intern-Homework)
 ![GitHub repo size](https://img.shields.io/github/repo-size/5j54d93/Dcard-2022-Web-Frontend-Intern-Homework)
 
 A [**React**](https://reactjs.org) app designed like [**Dcard**](https://www.dcard.tw) with [Bootstrap](https://github.com/twbs/bootstrap) that could：
