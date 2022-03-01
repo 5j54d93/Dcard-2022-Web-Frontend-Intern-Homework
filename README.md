@@ -51,7 +51,7 @@ A [**React**](https://reactjs.org) app designed like [**Dcard**](https://www.dca
 git clone https://github.com/5j54d93/Dcard-2022-Web-Frontend-Intern-Homework --depth
 ```
 
-2. Change directories to this repository
+2. Change directories to this repository via `cd` or drag this folder and drop in terminal
 
 ```shell
 cd Dcard-2022-Web-Frontend-Intern-Homework
