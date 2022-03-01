@@ -33,7 +33,7 @@ A [**React**](https://reactjs.org) app designed like [**Dcard**](https://www.dca
    - [Rate Limit](https://github.com/5j54d93/Dcard-2022-Web-Frontend-Intern-Homework#rate-limit)
    - [Responsive Web Design](https://github.com/5j54d93/Dcard-2022-Web-Frontend-Intern-Homework#responsive-web-design)
    - [Better User Experience on small Devices](https://github.com/5j54d93/Dcard-2022-Web-Frontend-Intern-Homework#better-user-experience-on-small-devices)
-4. [**LICENSE**](https://github.com/5j54d93/Dcard-2022-Web-Frontend-Intern-Homework#license)：MIT
+4. [**LICENSE：MIT**](https://github.com/5j54d93/Dcard-2022-Web-Frontend-Intern-Homework#licensemit)
 
 ## How To Use
 
