@@ -48,7 +48,7 @@ A [**React**](https://reactjs.org) app designed like [**Dcard**](https://www.dca
 1. Download this repository via `git clone` or from [Releases](https://github.com/5j54d93/Dcard-2022-Web-Frontend-Intern-Homework/releases)
 
 ```shell
-git clone https://github.com/5j54d93/Dcard-2022-Web-Frontend-Intern-Homework --depth
+git clone https://github.com/5j54d93/Dcard-2022-Web-Frontend-Intern-Homework
 ```
 
 2. Change directories to this repository via `cd` or drag this folder and drop in terminal
