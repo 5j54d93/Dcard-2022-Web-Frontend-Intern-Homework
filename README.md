@@ -18,6 +18,10 @@ A [**React**](https://reactjs.org) app designed like [**Dcard**](https://www.dca
 
 > Doc：[Dcard 2022 Web Frontend Intern Homework.pdf](https://github.com/5j54d93/Dcard-2022-Web-Frontend-Intern-Homework/blob/main/.github/File/2022%20Web%20Frontend%20Intern%20Homework.pdf)
 
+#### Comments from Dcard Web Frontend Team 技術夥伴：
+
+作業看的出來很用心，特別去研究了 Dcard 的 UI，體驗上也大致不錯，多做追蹤等功能也相當有特色，README 文件的詳細程度也很加分。
+
 ## Overview
 
 1. [**How To Use**](https://github.com/5j54d93/Dcard-2022-Web-Frontend-Intern-Homework#how-to-use)
